@@ -3,7 +3,7 @@
     <section class="w-full bg-cover bg-center mt-0 py-32" style="background-image: url('https://source.unsplash.com/random');">
         <div class="text-white px-4">
             <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-white font-extrabold mb-6">
-                Hungry Lion
+                {{ $biz->name }}
             </h1>
             @include('livewire.__partials.rate-stars')	
             <div class="flex items-center space-x-2 my-2">
@@ -44,11 +44,11 @@
             </div>
         </div>
     </section>
-    <section class="mx-auto px-4 py-4">
+    <section class="mx-auto px-16 py-4">
         <div class="flex">
             <div class="flex-initial w-3/4 ...">
               <div class="flex">
-                    <a target="_blank" href="{{ route('write-review', 1) }}" type="button" class="space-x-2 bg-red-500 text-white inline-flex  border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-800">
+                    <a target="_blank" href="{{ route('write-review', $biz->id) }}" type="button" class="space-x-2 bg-red-600 text-white inline-flex  border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-white" viewBox="0 0 16 16">
                             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                         </svg>                        
@@ -75,8 +75,92 @@
                     </button>
               </div>
             </div>
-            <div class="flex-initial w-1/4 ...">
-              03
+            <div class="flex-initial w-1/4">
+                <div id="detailed-pricing" class="">
+                    <div class="overflow-hidden min-w-max">
+                        <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 gap-x-16">
+                            <div class="text-gray-500 dark:text-gray-400">www.{{$biz->name}}.com </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-600" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 gap-x-16">
+                            <div class="text-gray-800 dark:text-gray-400">(585) 394-7800 </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-600" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+                                    <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                                    <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                </svg>                            
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 gap-x-16">
+                            <div class="text-purple-600 dark:text-gray-400">
+                                <h4>Directions</h4>
+                                <h6>{{ $biz->address ?? 'No Address added' }}</h6>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-600" fill="currentColor" class="bi bi-sign-merge-right-fill" viewBox="0 0 16 16">
+                                    <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435ZM8.75 6v1c.14.301.338.617.588.95.537.716 1.259 1.44 2.016 2.196l-.708.708-.015-.016c-.652-.652-1.33-1.33-1.881-2.015V12h-1.5V6H6.034a.25.25 0 0 1-.192-.41l1.966-2.36a.25.25 0 0 1 .384 0l1.966 2.36a.25.25 0 0 1-.192.41H8.75Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <h2 class="font-extrabold py-2">Location & Hours</h2>
+            <div class="flex">
+                <div class="w-1/4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51754.35188643321!2d28.317123114237695!3d-15.394606939190867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0dc9c48415%3A0xa09b8a404f8b4101!2sMunali%20Mall!5e0!3m2!1sen!2szm!4v1685403318481!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="w-1/2">
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div>
+            <h2 class="font-extrabold py-2">You Might Also Consider</h2>
+            <div class="flex">
+                <div class="w-1/4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51754.35188643321!2d28.317123114237695!3d-15.394606939190867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0dc9c48415%3A0xa09b8a404f8b4101!2sMunali%20Mall!5e0!3m2!1sen!2szm!4v1685403318481!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="w-1/2">
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div>
+            <h2 class="font-extrabold py-2">Amenities and More</h2>
+            <div class="flex">
+                <div class="w-1/4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51754.35188643321!2d28.317123114237695!3d-15.394606939190867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0dc9c48415%3A0xa09b8a404f8b4101!2sMunali%20Mall!5e0!3m2!1sen!2szm!4v1685403318481!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="w-1/2">
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div>
+            <h2 class="font-extrabold py-2">Recommended Reviews</h2>
+            <div class="flex">
+                <div class="w-1/4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51754.35188643321!2d28.317123114237695!3d-15.394606939190867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0dc9c48415%3A0xa09b8a404f8b4101!2sMunali%20Mall!5e0!3m2!1sen!2szm!4v1685403318481!5m2!1sen!2szm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="w-1/2">
+
+                </div>
             </div>
         </div>
     </section>

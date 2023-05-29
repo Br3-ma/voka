@@ -29,11 +29,6 @@
         </style>
     </head>
     <body class="font-sans antialiased">
-            <!-- Banner -->
-            <a href="https://webpixels.io/components?ref=codepen" class="btn w-full btn-primary text-truncate rounded-0 py-2 border-0 position-relative" style="z-index: 1000;">
-                <strong>Crafted with Webpixels CSS:</strong> The design system for Bootstrap 5. Browse all components →
-            </a>
-            
             <!-- Dashboard -->
             <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
                 <!-- Vertical Navbar -->

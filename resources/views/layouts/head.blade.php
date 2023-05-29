@@ -1,3 +1,6 @@
+@php
+    $currentRouteName = \Route::currentRouteName();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -18,6 +21,7 @@
         {{-- @vite('resources/css/app.css') --}}
     </head>
     <body>
+
         <div class="text-primary">
             <div class="border py-3 px-6">
                 <div class="flex justify-between">
@@ -32,8 +36,9 @@
                             </svg>
                             <span class="text-sm font-medium">Categories</span>
                         </div> --}}
-                
-                        <input type="text" class="w-full rounded-md border border-[#DDE2E4] px-3 py-2 text-sm" placeholder="Ex. Zanaco" />
+                        <form action="{{ route('search') }}" method="GET" class="w-full">
+                            <input type="text" name="query" class="w-full rounded-md border border-[#DDE2E4] px-3 py-2 text-sm" placeholder="Ex. Zanaco" />
+                        </form>
                     </div>
             
                     <div class="ml-2 flex">
@@ -76,27 +81,51 @@
                     </div>
                 </div>
             
-                <div class="mt-4 flex text-white items-center justify-between">
-                    <div class="flex gap-x-2 py-1 px-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-sm font-medium">California</span>
+                @if($currentRouteName == 'welcome')
+                    <div class="mt-4 flex text-white items-center justify-between">
+                        <div class="flex gap-x-2 py-1 px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm font-medium">Lusaka, LSK</span>
+                        </div>
+                
+                        <div class="flex gap-x-8">
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Best seller</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">New Releases</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Books</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Computers</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Fashion</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Health</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Pharmacy</a>
+                            <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Toys & Games</a>
+                        </div>
+                
+                        <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">Becoma a seller</span>
                     </div>
-            
-                    <div class="flex gap-x-8">
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Best seller</span>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">New Releases</span>
-                    <a href="{{ route('categories') }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Books</a>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Computers</span>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Fashion</span>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Health</span>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Pharmacy</span>
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Toys & Games</span>
+                @else
+                    <div class="mt-4 flex text-white items-center justify-between">
+                        <div class="flex gap-x-2 py-1 px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm text-blue-400 font-medium">Lusaka, LSK</span>
+                        </div>
+                
+                        <div class="flex gap-x-8">
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Best seller</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">New Releases</a>
+                            <a href="{{ route('categories') }}" class="text-slate-700 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Books</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Computers</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Fashion</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Health</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Pharmacy</a>
+                            <a href="{{ route('categories') }}" class="text-slate-800 cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Toys & Games</a>
+                        </div>
+                
+                        <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">Becoma a seller</span>
                     </div>
-            
-                    <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">Becoma a seller</span>
-                </div>
+                @endif
             </div>
         </div>
 

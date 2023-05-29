@@ -254,19 +254,19 @@
 					<!-- Breadcrumbs -->
 					<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 						<div class="flex items-center space-x-2 text-gray-400 text-sm">
-							<a href="#" class="hover:underline hover:text-gray-600">Home</a>
+							<a href="#" class="hover:underline hover:text-gray-600">Lusaka</a>
 							<span>
-							<svg class="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-							</svg>
+								<svg class="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
 							</span>
-							<a href="#" class="hover:underline hover:text-gray-600">Electronics</a>
-							<span>
-							<svg class="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-							</svg>
+							<a href="#" class="hover:underline hover:text-gray-600">All</a>
+							{{-- <span>
+								<svg class="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
 							</span>
-							<span>Headphones</span>
+							<span>Headphones</span> --}}
 						</div>
 					</div>
 					<!-- ./ Breadcrumbs -->
@@ -286,16 +286,16 @@
 						</div>
 					</div>
 					{{-- ./ Ad - Promo Section --}}
-
+					@forelse ($biz as $b)
 					<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-						<a target="_blank" href="{{ route('business-detail', 1)}}" class="flex flex-col md:flex-row -mx-4">
+						<a target="_blank" href="{{ route('business-detail', $b->id)}}" class="flex flex-col md:flex-row -mx-4">
 							
 							<div class="px-2">
 								<img width="200" class="rounded-lg bg-gray-100" src="https://jabulanimall.co.za/wp-content/uploads/2021/01/IMG_20201229_100751-1200x900.jpg">
 							</div>
 							
 							<div class="md:flex-1">
-								<h3 class="leading-tight tracking-tight font-extrabold text-dark text-xl md:text-xl">Hungry Lion.</h3>
+								<h3 class="leading-tight tracking-tight font-extrabold text-dark text-xl md:text-xl">{{ $b->name }}</h3>
 								@include('livewire.__partials.rate-stars')						
 								<div class="flex items-center space-x-2 my-2">
 									<div class="rounded-lg bg-gray-100 flex px-2">
@@ -341,7 +341,7 @@
 										  </svg>
 									</span>
 									<span>
-										“So, I called a couple of times and left a message today. They called me back and make sure I have an appointment today. The time was right on point. My car has an engine light on so…” more
+										“{{ $b->description }}” 
 									</span>
 								</p>
 								<hr>
@@ -351,6 +351,9 @@
 							View Website
 						</button>
 					</div>
+					@empty
+						
+					@endforelse($biz)
 
 					{{-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
 						<div class="flex flex-col md:flex-row -mx-4">

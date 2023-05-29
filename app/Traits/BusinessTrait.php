@@ -14,6 +14,10 @@ trait BusinessTrait{
     public function get_all_businesses(){
         return Business::paginate(10);
     }
+    public function get_subscribed_businesses(){
+        // make status 1
+        return Business::where('status', 0)->get();
+    }
     
     public function getBusiness($id){
         return Business::where('id', $id)->first();
