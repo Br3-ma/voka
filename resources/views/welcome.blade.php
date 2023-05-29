@@ -8,7 +8,7 @@
             </h1>
             {{-- <p class="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
                 gravida pellentesque urna varius vitae.</p> --}}
-            <a target="_bank" href="{{ route('register') }}" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Get Started</a>
+            <a target="_bank" href="{{ route('register') }}" class="bg-[#840178] text-white py-4 px-12 rounded-full hover:bg-purple-400">Get Started</a>
         </div>
     </section>
 
