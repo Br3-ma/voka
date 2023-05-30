@@ -138,17 +138,51 @@
                     
                     <div class="py-8 px-4 border-b border-gray-300">
                         <h2 class="font-extrabold py-2">Recommended Reviews</h2>
-                        <div class="flex">
-                            <div class="w-1/4">
-
+                        <div class="w-full my-3">
+                            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4 border-l-indigo-300 bg-gradient-to-r from-indigo-100 to-transparent hover:from-indigo-200 transition ease-linear duration-150">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-info-circle-fill w-4 h-4 text-purple-500 " viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="inline-flex items-center space-x-2">
+                                    <p>
+                                        <b>Your trust is our top concern,</b> so businesses can't pay to alter or remove 
+                                        <br>their reviews. <b class="text-purple-500">Learn more.</b>
+                                    </p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg w-4 h-4 text-slate-500 hover:text-slate-700 hover:cursor-pointer" viewBox="0 0 16 16">
+                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                    </svg>                   
+                                </div>
                             </div>
-                            <div class="w-1/2">
-            
+                        </div>
+                        <div class="w-full">
+                            <div id="task" class="flex justify-between items-center border py-6 border-slate-200 py-3 px-2 shadow-lg  transition ease-linear duration-150">
+                                <div class="inline-flex items-center space-x-2">
+                                    @auth
+                                    <p class="font-bold text-lg">{{ auth()->user()->fname.' '.auth()->user()->lname }}</p>
+                                    @endauth
+                                    <p class="text-xs">Lusaka, Zambia</p>
+                                </div>
+                                <div>
+                                    @include('livewire.__partials.rate-stars')  
+                                    <small>
+                                        <a target="_blank" href="{{ route('write-review', $biz->id) }}">
+                                            With so few reviews, your opinion of {{ $biz->name }} could be huge. 
+                                            <br/>Start your review today.
+                                        </a>
+                                    </small>                   
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
             <div class="flex-initial px-4 w-1/4">
                 <div class="w-full sticky top-2">
                     <div class="w-full mb-6 p-2 border border-gray-300">
@@ -171,16 +205,7 @@
                                 </svg>                      
                             </div>
                         </div>
-                        <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4 border-l-indigo-300 bg-gradient-to-r from-indigo-100 to-transparent hover:from-indigo-200 transition ease-linear duration-150">
-                            <div class="inline-flex items-center space-x-2">
-                                <div>(585) 394-7800</div>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-slate-500 hover:text-slate-700 hover:cursor-pointer">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                </svg>                      
-                            </div>
-                        </div>
+
                         <div id="task" class="flex justify-between items-center py-3 px-2 border-l-4  border-l-transparent bg-gradient-to-r from-transparent to-transparent hover:from-slate-100 transition ease-linear duration-150">
                             <div class="inline-flex items-center space-x-2">
                                 <div>
