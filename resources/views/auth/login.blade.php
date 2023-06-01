@@ -6,11 +6,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;100&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;100&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -95,7 +95,7 @@ body{
     max-width: 300px;
     width: 60%;
     height: 40px;
-    color: #c0c0c0;
+    color: #1e1325;
     background-color: rgb(234, 234, 234);
     outline: none;
     border-radius: 3px;
@@ -156,7 +156,7 @@ body{
     z-index: 2;
     border: none;
     cursor: pointer;
-    color: #c0c0c0;
+    color: #1b1b1b;
     background-color: transparent;
     transform: translateX(-55px) translateY(22px);
 }

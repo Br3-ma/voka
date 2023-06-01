@@ -176,75 +176,97 @@
 	  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<section aria-labelledby="products-heading" class="pb-24 pt-6">
 		  	<div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-				<div class="hidden lg:block">
-					<h3 class="sr-only">Categories</h3>
-					<ul role="list" class="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-						<li>
-						<a href="#">Totes</a>
-						</li>
-		
-						<li>
-						<a href="#">Backpacks</a>
-						</li>
-		
-						<li>
-						<a href="#">Travel Bags</a>
-						</li>
-		
-						<li>
-						<a href="#">Hip Bags</a>
-						</li>
-		
-						<li>
-						<a href="#">Laptop Sleeves</a>
-						</li>
-					</ul>
-		
-					<div class="border-b border-gray-200 py-6">
+				<div class=" hidden lg:block">
+					<div class="sticky top-0">
 						<h3 class="-my-3 flow-root">
-						<!-- Expand/collapse section button -->
-						<button type="button" class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
-							<span class="font-medium text-gray-900">Category</span>
-							<span class="ml-6 flex items-center">
-							<!-- Expand icon, show/hide based on section open state. -->
-							<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-							</svg>
-							<!-- Collapse icon, show/hide based on section open state. -->
-							<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
-							</svg>
-							</span>
-						</button>
+							<!-- Expand/collapse section button -->
+							<button type="button" class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
+								<span  class="font-extrabold text-gray-900">Features</span>
+								<span class="ml-6 flex items-center">
+								<!-- Expand icon, show/hide based on section open state. -->
+								<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+								</svg>
+								<!-- Collapse icon, show/hide based on section open state. -->
+								<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
+								</svg>
+								</span>
+							</button>
 						</h3>
-						<!-- Filter section, show/hide based on section state. -->
-						<div class="pt-6" id="filter-section-1">
-						<div class="space-y-4">
-							<div class="flex items-center">
-							<input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-							<label for="filter-category-0" class="ml-3 text-sm text-gray-600">New Arrivals</label>
+						<ul role="list" class="space-y-4 border-b border-gray-200 py-6 items-center text-sm text-gray-900">
+
+							<li>
+								<a href="#" class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-gray-500 bg-white rounded-full hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 border border-gray-300 dark:focus:ring-gray-300">
+									Backpacks
+								</a>
+							</li>
+			
+							<li>
+								<a href="#" class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-gray-500 bg-white rounded-full hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 border border-gray-300 dark:focus:ring-gray-300">
+									Travel Bags
+								</a>
+							</li>
+			
+							<li>
+								<a href="#" class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-gray-500 bg-white rounded-full hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 border border-gray-300 dark:focus:ring-gray-300">
+									Hip Bags
+								</a>
+							</li>
+			
+							<li>
+								<a href="#" class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-gray-500 bg-white rounded-full hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 border border-gray-300 dark:focus:ring-gray-300">
+									Laptop Sleeves
+								</a>
+							</li>
+						</ul>
+			
+						<div class="border-b border-gray-200 py-6">
+							<h3 class="-my-3 flow-root">
+							<!-- Expand/collapse section button -->
+							<button type="button" class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
+								<span  class="font-extrabold text-gray-900">Category</span>
+								<span class="ml-6 flex items-center">
+								<!-- Expand icon, show/hide based on section open state. -->
+								<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+								</svg>
+								<!-- Collapse icon, show/hide based on section open state. -->
+								<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
+								</svg>
+								</span>
+							</button>
+							</h3>
+							<!-- Filter section, show/hide based on section state. -->
+							<div class="pt-6" id="filter-section-1">
+							<div class="space-y-4">
+								<div class="flex items-center">
+								<input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+								<label for="filter-category-0" class="ml-3 text-sm text-gray-600">New Arrivals</label>
+								</div>
+			
+								<div class="flex items-center">
+								<input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+								<label for="filter-category-1" class="ml-3 text-sm text-gray-600">Sale</label>
+								</div>
+			
+								<div class="flex items-center">
+								<input id="filter-category-2" name="category[]" value="travel" type="checkbox" checked class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+								<label for="filter-category-2" class="ml-3 text-sm text-gray-600">Travel</label>
+								</div>
+			
+								<div class="flex items-center">
+								<input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+								<label for="filter-category-3" class="ml-3 text-sm text-gray-600">Organization</label>
+								</div>
+			
+								<div class="flex items-center">
+								<input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+								<label for="filter-category-4" class="ml-3 text-sm text-gray-600">Accessories</label>
+								</div>
 							</div>
-		
-							<div class="flex items-center">
-							<input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-							<label for="filter-category-1" class="ml-3 text-sm text-gray-600">Sale</label>
 							</div>
-		
-							<div class="flex items-center">
-							<input id="filter-category-2" name="category[]" value="travel" type="checkbox" checked class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-							<label for="filter-category-2" class="ml-3 text-sm text-gray-600">Travel</label>
-							</div>
-		
-							<div class="flex items-center">
-							<input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-							<label for="filter-category-3" class="ml-3 text-sm text-gray-600">Organization</label>
-							</div>
-		
-							<div class="flex items-center">
-							<input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-							<label for="filter-category-4" class="ml-3 text-sm text-gray-600">Accessories</label>
-							</div>
-						</div>
 						</div>
 					</div>
 				</div>
@@ -272,22 +294,22 @@
 					<!-- ./ Breadcrumbs -->
 				
 					{{-- Ad - Promo Section --}}
-					<div class="border-dashed border-2 mt-2 rounded-lg border-gray-200 p-4 flex w-full">
+					<div class="border-dashed border-2 mt-2 rounded-lg border-gray-200 p-4 py-4 flex w-full">
 						<div class="w-3/4">
 							<h3 class="font-bold">Free price estimates from local Auto Repair pros</h3>
-							<small>Tell us about your project and get help from sponsored businesses.</small>
+							<small>Tell us about your project and get help<br>from sponsored businesses.</small>
 							<br>
-							<button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+							<button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 my-6">
 								Get Started
 							</button>
 						</div>
 						<div class="1/4">
-							<img width="50" class="flex-end" src="https://img.freepik.com/free-vector/pay-balance-owed-abstract-concept-vector-illustration-making-credit-payment-pay-owed-money-bank-irs-balance-due-debt-consolidation-management-taxpayer-bill-abstract-metaphor_335657-4342.jpg?w=740&t=st=1680693567~exp=1680694167~hmac=17d733b3fcb2ebeadc66ac3b7cb2ca148323827668d209c321f5fffb06f3f0ec">
+							<img width="100" class="flex-end" src="https://img.freepik.com/free-vector/pay-balance-owed-abstract-concept-vector-illustration-making-credit-payment-pay-owed-money-bank-irs-balance-due-debt-consolidation-management-taxpayer-bill-abstract-metaphor_335657-4342.jpg?w=740&t=st=1680693567~exp=1680694167~hmac=17d733b3fcb2ebeadc66ac3b7cb2ca148323827668d209c321f5fffb06f3f0ec">
 						</div>
 					</div>
 					{{-- ./ Ad - Promo Section --}}
 					@forelse ($biz as $b)
-					<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+					<div class="max-w-7xl border border-gray-200 py-4 mx-auto px-4 sm:px-6 lg:px-8 mt-6">
 						<a target="_blank" href="{{ route('business-detail', $b->id)}}" class="flex flex-col md:flex-row -mx-4">
 							
 							<div class="px-2">
@@ -344,7 +366,7 @@
 										“{{ $b->description }}” 
 									</span>
 								</p>
-								<hr>
+								
 							</div>
 						</a>
 						<button type="button" class="fl-right py-2.5 px-5 mr-2 mt-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray">

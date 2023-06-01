@@ -30,7 +30,7 @@
     </head>
     <body class="font-sans antialiased">
             <!-- Dashboard -->
-            <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+            <div class="d-flex w-full h-lg-full bg-surface-secondary">
                 <!-- Vertical Navbar -->
                 <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
                     <div class="container-fluid">
@@ -69,7 +69,7 @@
                             <!-- Navigation -->
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('dashboard')}}">
                                         <i class="bi bi-house"></i> Dashboard
                                     </a>
                                 </li>
@@ -79,20 +79,36 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('manage-reviews')}}">
                                         <i class="bi bi-bar-chart"></i> Reviews
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-bar-chart"></i> Business Categories
+                                    <a class="nav-link" href="{{ route('manage-categories')}}">
+                                        <i class="bi bi-bar-chart"></i> Categories
                                     </a>
                                 </li>
-                                {{--<li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-bar-chart"></i> Analitycs
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('manage-categories')}}">
+                                        <i class="bi bi-bar-chart"></i> Tags
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-bar-chart"></i> Subscription Plans
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-bar-chart"></i> Payments 
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-bar-chart"></i> Users
+                                    </a>
+                                </li>
+                                {{--
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
                                         <i class="bi bi-chat"></i> Messages

@@ -7,7 +7,11 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Livewire\BusinessDetail;
 use App\Http\Livewire\Categories;
+use App\Http\Livewire\Dashboard\Business\Create;
+use App\Http\Livewire\Dashboard\Categories\Create as CategoriesCreate;
 use App\Http\Livewire\Dashboard\ManageBusinessesView;
+use App\Http\Livewire\Dashboard\ManageCategoryView;
+use App\Http\Livewire\Dashboard\ManageReviewsView;
 use App\Http\Livewire\Packages;
 use App\Http\Livewire\WriteReview;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +42,17 @@ Route::post('/business-registration-submission', [AddBusinessController::class, 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
     Route::get('/write-a-review/{id}', WriteReview::class)->name('write-review');
+    
+    Route::get('/manage-reviews', ManageReviewsView::class)->name('manage-reviews');
+    
+    
+    Route::get('/manage-categories', ManageCategoryView::class)->name('manage-categories');
+    Route::get('/create-a-category', CategoriesCreate::class)->name('create-category');
+
+
     Route::get('/manage-business', ManageBusinessesView::class)->name('manage-business');
+    Route::get('/create-business', Create::class)->name('create-business');
+
+    
     Route::resource('businesses', BusinessController::class);
 });
