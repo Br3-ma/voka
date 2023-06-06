@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Business;
 use App\Traits\BusinessTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CategoriesController extends Controller
 {
@@ -25,11 +26,14 @@ class CategoriesController extends Controller
     {    
         $query = $request->input('query');
 
-        $biz = Business::query()
+        $biz = Cache::remember('biz_search', 60 * 60, function() use ($query){
+            Business::query()
             ->where('name', 'LIKE', "%{$query}%")
             ->orWhere('description', 'LIKE', "%{$query}%")
             ->get();
-            
+        });
+
+        dd($biz);
         return view('livewire.categories', [
             'biz' => $biz
         ]);

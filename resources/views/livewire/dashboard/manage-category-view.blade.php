@@ -42,21 +42,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @forelse ($all_businesses as $biz) --}}
+                            @forelse ($all_categories as $cat)
                                 <tr>
                                     <td>
                                         <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">
-                                            
+                                            {{ $cat->name }}
                                         </a>
                                     </td>
                                     <td>
-                                        
+                                        {{ $cat->desc }}
                                     </td>
                                     <td>
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bg-danger"></i>3.4
+                                            <i class="bg-danger"></i> {{ $cat->added_by->fname.' '.$cat->added_by->lname }}
                                         </span>
+                                    </td>
+                                    <td>
+                                        {{ $cat->created_at->toFormattedDateString() }}
+                                    </td>
+                                    <td>
+                                        {{ $cat->updated_at->toFormattedDateString() }}
                                     </td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
@@ -65,9 +71,9 @@
                                         </button>
                                     </td>
                                 </tr>
-                            {{-- @empty --}}
+                            @empty
                                 
-                            {{-- @endforelse --}}
+                            @endforelse
                             
                         </tbody>
                     </table>

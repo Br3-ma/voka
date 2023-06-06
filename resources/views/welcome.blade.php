@@ -12,9 +12,20 @@
         </div>
     </section>
 
+    <section class="text-gray-900 py-8 mx-24 bg-white">
+        <div class="flex justify-center items-center p-4">
+            <p class="text-xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Categories</p>
+        </div>
+        <div class="w-full">
+
+            @include('__partials.all-categories')
+            
+        </div>
+    </section>
+
     <section class="text-gray-900 py-8 px-24 bg-white">
         <div class="flex justify-center items-center p-4">
-            <p class="text-xl font-semibold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Recent Reviews</p>
+            <p class="text-xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Recent Activities</p>
         </div>
         <div class="flex space-x-2 mx-auto">
 

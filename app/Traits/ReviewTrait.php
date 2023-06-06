@@ -4,12 +4,16 @@ namespace App\Traits;
 
 use App\Models\BusinessReview;
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 
 trait ReviewTrait{
     //***************** READ ******
     public function get_all_reviews(){
-        return BusinessReview::with('business')->get();
+        $reviews = Cache::remember('reviews_list', 60 * 60, function(){
+            return BusinessReview::with('business')->get();
+        });
+        return $reviews; 
     }
 
     public function get_bad_reviews(){
