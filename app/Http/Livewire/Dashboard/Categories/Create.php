@@ -20,14 +20,13 @@ class Create extends Component
         $data = [
             'name'=>$this->name,
             'desc'=>$this->desc,
-            'user_id'=>$this->user_id
+            'user_id'=> auth()->user()->id
         ];
-        dd($data);
         $response = $this->create_category($data);
         if ($response) {
-            
+            session()->flash('success', 'Ok, '.$this->name.' has been added to categories!');
         } else {
-            
+            session()->flash('error', 'Failed to create category!');
         }
         
     }

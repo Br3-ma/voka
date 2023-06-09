@@ -26,11 +26,15 @@ class BusinessReview extends Model
         'reviewer_name',
     ];
 
+    public static function total(){
+        return BusinessReview::count();
+    }
 
     public function getReviewerNameAttribute(){
         $name = User::where('id', $this->user_id)->first();
         return $name->fname.' '.$name->lname;
     }
+
     public function reviewer(){
         return $this->belongsTo(User::class, 'user_id');
     }

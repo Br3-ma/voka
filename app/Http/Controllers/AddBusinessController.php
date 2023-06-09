@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
+use App\Models\Category;
 use App\Traits\BusinessTrait;
 use App\Traits\UserTrait;
 use Illuminate\Http\Request;
@@ -21,10 +22,11 @@ class AddBusinessController extends Controller
     public function secondStep(Request $request){
         $amount = $request->query('amount');
         $type = $request->query('type');
-
+        $categories = Category::get();
         return view('add-business',[
             'amount' => $amount,
-            'type'=> $type
+            'type'=> $type,
+            'categories'=> $categories
         ]);
     }
 

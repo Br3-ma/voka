@@ -91,7 +91,23 @@
                     </p>
                     <div class="mt-2">
                         <label class="block text-gray-700">Business Categories</label>
-                        <input type="text" name="category_ids" id="" placeholder="Choose" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none">
+                        <input type="hidden" name="category_ids" id="category_ids" placeholder="Choose" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none">
+                        <div id="selectedCats" class="py-4">
+
+                        </div>
+                        <div class="py-2">
+                            @forelse ($categories as $cat)
+                                <span style="pointer:cursor" onclick="catID('{{$cat->id}}')" id="badge-dismiss-yellow" class="pointer inline-flex hover:bg-yellow-100 hover:text-dark items-center px-2 py-2 mr-2 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
+                                    {{$cat->name}}
+                                    <button type="button" class="inline-flex items-center p-0.5 ml-2 text-sm text-yellow-400 bg-transparent rounded-full hover:bg-yellow-200 hover:text-yellow-900 dark:hover:bg-yellow-800 dark:hover:text-yellow-300" data-dismiss-target="#badge-dismiss-yellow" aria-label="Remove">
+                                        <svg aria-hidden="true" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                        <span class="sr-only">Remove badge</span>
+                                    </button>
+                                </span>
+                            @empty
+                                <small>No categories found</small>
+                            @endforelse
+                        </div>
                         <button id="goto5" type="button" class="text-white mt-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                             Continue
                         </button>
@@ -144,52 +160,57 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-// Your jQuery code goes here
-$(document).ready(function() {
-        
-      $("#mystep2").hide();
-      $("#mystep3").hide();
-      $("#mystep4").hide();
-      $("#mystep5").hide();
+        $("#mystep2").hide();
+        $("#mystep3").hide();
+        $("#mystep4").hide();
+        $("#mystep5").hide();
       
-      $("#goto1").click(function() {
-        $("#mystep1").show();
-        $("#mystep2").hide();
-        $("#mystep3").hide();
-        $("#mystep4").hide();
-        $("#mystep5").hide();
-      });
+        $("#goto1").click(() => {
+            $("#mystep1").show();
+            $("#mystep2").hide();
+            $("#mystep3").hide();
+            $("#mystep4").hide();
+            $("#mystep5").hide();
+        });
 
-      $("#goto2").click(function() {
-        $("#mystep2").show();
-        $("#mystep1").hide();
-        $("#mystep3").hide();
-        $("#mystep4").hide();
-        $("#mystep5").hide();
-      });
+        $("#goto2").click(() => {
+            $("#mystep2").show();
+            $("#mystep1").hide();
+            $("#mystep3").hide();
+            $("#mystep4").hide();
+            $("#mystep5").hide();
+        });
 
-      $("#goto3").click(function() {
-        $("#mystep1").hide();
-        $("#mystep2").hide();
-        $("#mystep3").show();
-        $("#mystep4").hide();
-        $("#mystep5").hide();
-      });
+        $("#goto3").click(() => {
+            $("#mystep1").hide();
+            $("#mystep2").hide();
+            $("#mystep3").show();
+            $("#mystep4").hide();
+            $("#mystep5").hide();
+        });
 
-    $("#goto4").click(function() {
-        $("#mystep1").hide();
-        $("#mystep2").hide();
-        $("#mystep3").hide();
-        $("#mystep4").show();
-        $("#mystep5").hide(); 
-    });
+        $("#goto4").click(() => {
+            $("#mystep1").hide();
+            $("#mystep2").hide();
+            $("#mystep3").hide();
+            $("#mystep4").show();
+            $("#mystep5").hide(); 
+        });
 
-    $("#goto5").click(function() {
-        $("#mystep1").hide();
-        $("#mystep2").hide();
-        $("#mystep3").hide();
-        $("#mystep4").hide();
-        $("#mystep5").show(); 
-    });
-});
+        $("#goto5").click(() => {
+            $("#mystep1").hide();
+            $("#mystep2").hide();
+            $("#mystep3").hide();
+            $("#mystep4").hide();
+            $("#mystep5").show(); 
+        });
+
+    function catID(id){
+        const input = document.getElementById('myInput');
+        let myArray = [];
+        myArray.push(id);
+
+        
+        input.value = myArray.join(', '); 
+    }
 </script>

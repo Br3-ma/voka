@@ -11,7 +11,10 @@ use App\Http\Livewire\Dashboard\Business\Create;
 use App\Http\Livewire\Dashboard\Categories\Create as CategoriesCreate;
 use App\Http\Livewire\Dashboard\ManageBusinessesView;
 use App\Http\Livewire\Dashboard\ManageCategoryView;
+use App\Http\Livewire\Dashboard\ManagePaymentsView;
 use App\Http\Livewire\Dashboard\ManageReviewsView;
+use App\Http\Livewire\Dashboard\ManageSubscriptionView;
+use App\Http\Livewire\Dashboard\Subscription\Create as SubscriptionCreate;
 use App\Http\Livewire\Packages;
 use App\Http\Livewire\WriteReview;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +43,9 @@ Route::post('/business-registration-submission', [AddBusinessController::class, 
 
 // Auths
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+    Route::get('/dashboard', function () { 
+        return view('dashboard'); 
+    })->name('dashboard');
     Route::get('/write-a-review/{id}', WriteReview::class)->name('write-review');
     
     Route::get('/manage-reviews', ManageReviewsView::class)->name('manage-reviews');
@@ -52,6 +57,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::get('/manage-business', ManageBusinessesView::class)->name('manage-business');
     Route::get('/create-business', Create::class)->name('create-business');
+
+
+    Route::get('/manage-subscriptions', ManageSubscriptionView::class)->name('manage-subscriptions');
+    Route::get('/create-subscriptions', SubscriptionCreate::class)->name('create-subscription');
+
+
+    Route::get('/manage-payments', ManagePaymentsView::class)->name('manage-payments');
 
     
     Route::resource('businesses', BusinessController::class);

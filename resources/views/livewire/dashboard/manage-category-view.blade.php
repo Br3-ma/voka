@@ -1,5 +1,5 @@
 
-<div class="w-full">
+<div class="">
     <div class="p-4">
         <div class="mb-npx">
             <div class="row align-items-center ">
@@ -34,7 +34,6 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Category Name</th>
-                                <th scope="col">Description</th>
                                 <th scope="col">Added By</th>
                                 <th scope="col">Date Created</th>
                                 <th scope="col">Date Modified</th>
@@ -51,11 +50,14 @@
                                         </a>
                                     </td>
                                     <td>
-                                        {{ $cat->desc }}
-                                    </td>
-                                    <td>
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bg-danger"></i> {{ $cat->added_by->fname.' '.$cat->added_by->lname }}
+                                            
+                                            <i class="bg-danger"></i> 
+                                            @if ($cat->added_by !== null)
+                                                {{ $cat->added_by->fname.' '.$cat->added_by->lname }}
+                                            @else
+                                                System
+                                            @endif
                                         </span>
                                     </td>
                                     <td>

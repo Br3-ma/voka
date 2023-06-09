@@ -61,6 +61,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public static function total(){
+        return User::count();
+    }
+
 
     public function reviews(){
         return $this->hasMany(BusinessReview::class);

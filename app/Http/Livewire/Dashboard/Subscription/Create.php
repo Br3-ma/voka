@@ -8,7 +8,8 @@ use Livewire\Component;
 class Create extends Component
 {
     use SubscriptionTrait;
-    public $business_id, $user_id, $sub_package_id, $payment_status, $is_active, $status;
+    public $name, $price, $desc;
+    public $feat = [];
 
     public function render()
     {
@@ -17,10 +18,15 @@ class Create extends Component
 
     public function store(){
         try {
-            $req = $this->all();
-            $this->create_subscription($req);
+            dd($this->feat);
+
+
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+    public function removeInput($index)
+    {
+        unset($this->feat[$index]);
     }
 }

@@ -30,6 +30,7 @@
     </head>
     <body class="font-sans antialiased">
             <!-- Dashboard -->
+            
             <div class="d-flex w-full h-lg-full bg-surface-secondary">
                 <!-- Vertical Navbar -->
                 <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
@@ -94,12 +95,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('manage-subscriptions') }}">
                                         <i class="bi bi-bar-chart"></i> Subscription Plans
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('manage-payments') }}">
                                         <i class="bi bi-bar-chart"></i> Payments 
                                     </a>
                                 </li>

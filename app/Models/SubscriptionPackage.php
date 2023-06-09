@@ -20,6 +20,10 @@ class SubscriptionPackage extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function packages(){
+        return $this->hasMany(SubscriptionFeature::class);
+    }
+
     public function subscriptions(){
         return $this->hasMany(Subscription::class);
     }
