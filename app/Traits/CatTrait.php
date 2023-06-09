@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+
 use App\Models\Business;
 use App\Models\Category;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +13,10 @@ trait CatTrait{
 
     use WithPagination;
     
+    public function get_categories(){
+        return Category::paginate(10);
+    }
+
     public function create_category($arr){
         try {
             Category::create($arr);

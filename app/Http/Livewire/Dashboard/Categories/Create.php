@@ -16,11 +16,13 @@ class Create extends Component
     }
 
     public function store(){
+       
         $data = [
             'name'=>$this->name,
             'desc'=>$this->desc,
             'user_id'=>$this->user_id
         ];
+        dd($data);
         $response = $this->create_category($data);
         if ($response) {
             

@@ -7,40 +7,13 @@
                 <div class="container-fluid">
                     <div class="mb-npx">
                         <div class="row align-items-center">
-                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                            <div class="col-sm-6 col-12 mb-4 mb-sm-0 py-4">
                                 <!-- Title -->
                                 <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
                             </div>
-                            <!-- Actions -->
-                            <div class="col-sm-6 col-12 text-sm-end">
-                                <div class="mx-n1">
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                        <span class=" pe-2">
-                                            <i class="bi bi-pencil"></i>
-                                        </span>
-                                        <span>Edit</span>
-                                    </a>
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                        <span class=" pe-2">
-                                            <i class="bi bi-plus"></i>
-                                        </span>
-                                        <span>Create</span>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                         <!-- Nav -->
-                        <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                            <li class="nav-item ">
-                                <a href="#" class="nav-link active">All files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">Shared</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">File requests</a>
-                            </li>
-                        </ul>
+                      
                     </div>
                 </div>
             </header>
@@ -54,8 +27,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span>
-                                            <span class="h3 font-bold mb-0">$750.90</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total<br>Reviews</span>
+                                            <span class="h3 font-bold mb-0">0</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -65,7 +38,7 @@
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
                                         <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>13%
+                                            <i class="bi bi-arrow-up me-1"></i>0%
                                         </span>
                                         <span class="text-nowrap text-xs text-muted">Since last month</span>
                                     </div>
@@ -77,8 +50,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New projects</span>
-                                            <span class="h3 font-bold mb-0">215</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Reviewers</span>
+                                            <span class="h3 font-bold mb-0">1</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -100,8 +73,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total hours</span>
-                                            <span class="h3 font-bold mb-0">1.400</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Businesses</span>
+                                            <span class="h3 font-bold mb-0">3</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -123,8 +96,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work load</span>
-                                            <span class="h3 font-bold mb-0">95%</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Subscribers</span>
+                                            <span class="h3 font-bold mb-0">2</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -144,7 +117,7 @@
                     </div>
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
-                            <h5 class="mb-0">Applications</h5>
+                            <h5 class="mb-0">Top Subscribers</h5>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover table-nowrap">
