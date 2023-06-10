@@ -16,14 +16,17 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     outline: none;
+}
+
+h1{
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, #00C9FF , #75cd7e);
+    background: linear-gradient(to right, #9c2eb8 , #e7ceff);
 }
 
 .login{
@@ -37,7 +40,7 @@ body{
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);;
+    transform: translate(-50%, -50%);
     background-color: #55be9b;
 }
 
@@ -47,7 +50,7 @@ body{
     text-align: center;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    background-color: aliceblue;
+    background-color: rgb(252, 240, 255);
 }
 
 @media only screen and (max-width: 1000px) {
@@ -88,7 +91,7 @@ body{
   }
 
 .main-login h1{
-    color: #55be9b;
+    color: #610069;
 }
 
 .put{
@@ -112,12 +115,12 @@ body{
 }
 
 .sub:hover{
-    background-color: #55be9b;
+    background-color: #a055be;
     color: rgb(234, 234, 234);
 }
 
 .main-login .put:not(:placeholder-shown){
-    border-bottom: 2px solid #55be9b;
+    border-bottom: 2px solid #ac55be;
 }
 
 .sub{
@@ -143,7 +146,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 15px;
-    color: #3f9551;
+    color: #753f95;
     text-decoration: none;
     display: flex;
     width: fit-content;
@@ -168,7 +171,7 @@ body{
     color: aliceblue;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #55be9b;
+    background-color: #9642b8;
     /* background-color: rgb(255, 189, 127); */
 }
 
@@ -259,7 +262,7 @@ body{
 }
 
 .main-btn:hover{
-    background-color: #75cd7e;
+    background-color: #a055be;
 }
 
 .top{
@@ -283,7 +286,7 @@ body{
 }
 
 .top button:hover {
-    border-bottom: 3px solid #55be9b;
+    border-bottom: 3px solid #9755be;
 }
 
 .blob:nth-child(1){
@@ -294,7 +297,7 @@ body{
     height: 200px;
     z-index: 1;
     border-top-left-radius: 100%;
-    background-color: #75cd7e;
+    background-color: #ddc0ee;
 }
 
 .blob:nth-child(2){
@@ -304,7 +307,7 @@ body{
     height: 100px;
     z-index: 1;
     border-bottom-right-radius: 100%;
-    background-color: #75cd7e;
+    background-color: #682f74;
 } 
 </style>
 </head>
@@ -313,7 +316,7 @@ body{
     <main class="login">
         <div class="main-login">
             <div class="top">
-                <button>Sign In</button><button>Sign Up</button>
+                {{-- <button>Sign In</button><button>Sign Up</button> --}}
             </div>
             <x-validation-errors class="mb-4" />
 
@@ -322,42 +325,42 @@ body{
                     {{ session('status') }}
                 </div>
             @endif
-          <form method="POST" action="{{ route('login') }}">
-            @csrf
-            {{-- <h1>Sign In to Sample.</h1> --}}
-            <input class="usr put" placeholder="Email or Username" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-            <br>
-            <input id="pass" class="pss put" placeholder="Password" type="password" name="password" required autocomplete="current-password" >
-            <button id="bhde" onclick="show()" class="shw" type="button">show</button>
-            @if (Route::has('password.request'))
-                <a class="pass" href="{{ route('password.request') }}">Forgot Password</a>
-            @endif
-            <button id="btn" class="sub" type="submit" >Sign In</button>
-            {{-- <div class="lines">
-                <div style="background-color: #a5a5a5;" class="line"></div>
-                    <p style="color: #a5a5a5;" class="p-b">or</p>
-                    <div style="background-color: #a5a5a5;" class="line"></div>
-                </div>
-                <a style="border: 2px solid;" id="btn" class="sub pic facebook"><div class="logo2"></div>Sign in with Facebook</a>
-                <a style="border: 2px solid;" id="btn" class="sub pic google"><div class="logo"></div>Sign in with Google</a>
-            </div> --}}
-          </form>
-        <div class="banner">
-            <div class="blob"></div>
-            <div class="blob"></div>
-            <div class="contain">
-                <h1>Welcome Back!</h1>
-                <h4>We are happy to have you back, please sign back in to continue</h4>
-                <div class="lines">
-                    <div class="line"></div>
-                    <p class="p-b">or</p>
-                    <div class="line"></div>
-                </div>
-                <p class="pp">Dont have an account don't worry</p>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <h1>Vookamba</h1>
+                <input class="usr put" placeholder="Email or Username" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
                 <br>
-                <a href="{{ route('register') }}" style="margin-top:10px" class="main-btn">Sign Up today</a>
+                <input id="pass" class="pss put" placeholder="Password" type="password" name="password" required autocomplete="current-password" >
+                <button id="bhde" onclick="show()" class="shw" type="button">show</button>
+                @if (Route::has('password.request'))
+                    <a class="pass" href="{{ route('password.request') }}">Forgot Password</a>
+                @endif
+                <button id="btn" class="sub" type="submit" >Sign In</button>
+                <div class="lines">
+                    <div style="background-color: #a5a5a5;" class="line"></div>
+                        <p style="color: #a5a5a5;" class="p-b">or</p>
+                        <div style="background-color: #a5a5a5;" class="line"></div>
+                    </div>
+                    <a style="border: 2px solid;" id="btn" class="sub pic facebook"><div class="logo2"></div>Sign in with Facebook</a>
+                    <a style="border: 2px solid;" id="btn" class="sub pic google"><div class="logo"></div>Sign in with Google</a>
+                </div>
+            </form>
+            <div class="banner">
+                <div class="blob"></div>
+                <div class="blob"></div>
+                <div class="contain">
+                    <h1>Welcome Back!</h1>
+                    <h4>We are happy to have you back, please sign back in to continue</h4>
+                    <div class="lines">
+                        <div class="line"></div>
+                        <p class="p-b">or</p>
+                        <div class="line"></div>
+                    </div>
+                    <p class="pp">Dont have an account don't worry</p>
+                    <br>
+                    <a href="{{ route('register') }}" style="margin-top:10px" class="main-btn">Sign Up today</a>
+                </div>
             </div>
-        </div>
     </main>
 
     <script>
