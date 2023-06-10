@@ -8,23 +8,31 @@ use Livewire\Component;
 class Create extends Component
 {
     use SubscriptionTrait;
-    public $name, $price, $desc;
+    public $name, $price, $desc, $user_id;
     public $feat = [];
+    public $feat_price = [];
 
     public function render()
     {
+        $this->user_id = auth()->user()->id;
         return view('livewire.dashboard.subscription.create');
     }
 
     public function store(){
-        try {
-            dd($this->feat);
-
-
-        } catch (\Throwable $th) {
-            throw $th;
+        $data = $this->create_subscription($this->all());
+        if ($data) {
+            session()->flash('success', 'Ok, '.$this->name.' has been added to subscriptions!');
+            $this->reset();
+        } else {
+            session()->flash('error', 'Failed, '.$this->name.' Unable to add subscriptions!');
         }
     }
+
+    public function addInput()
+    {
+        $this->feat[] = '';
+    }
+
     public function removeInput($index)
     {
         unset($this->feat[$index]);

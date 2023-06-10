@@ -324,7 +324,7 @@ body{
             @endif
           <form method="POST" action="{{ route('login') }}">
             @csrf
-            <h1>Sign In to Sample.</h1>
+            {{-- <h1>Sign In to Sample.</h1> --}}
             <input class="usr put" placeholder="Email or Username" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
             <br>
             <input id="pass" class="pss put" placeholder="Password" type="password" name="password" required autocomplete="current-password" >
@@ -333,14 +333,14 @@ body{
                 <a class="pass" href="{{ route('password.request') }}">Forgot Password</a>
             @endif
             <button id="btn" class="sub" type="submit" >Sign In</button>
-            <div class="lines">
+            {{-- <div class="lines">
                 <div style="background-color: #a5a5a5;" class="line"></div>
                     <p style="color: #a5a5a5;" class="p-b">or</p>
                     <div style="background-color: #a5a5a5;" class="line"></div>
                 </div>
                 <a style="border: 2px solid;" id="btn" class="sub pic facebook"><div class="logo2"></div>Sign in with Facebook</a>
                 <a style="border: 2px solid;" id="btn" class="sub pic google"><div class="logo"></div>Sign in with Google</a>
-            </div>
+            </div> --}}
           </form>
         <div class="banner">
             <div class="blob"></div>

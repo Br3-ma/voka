@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Business;
 use App\Models\Category;
 use App\Traits\BusinessTrait;
+use App\Traits\SubscriptionTrait;
 use App\Traits\UserTrait;
 use Illuminate\Http\Request;
 
 class AddBusinessController extends Controller
 {
-    use BusinessTrait, UserTrait;
+    use BusinessTrait, UserTrait, SubscriptionTrait;
     public $biz_name, $biz_email, $biz_phone;
     /**
      * Display a listing of the resource.
      */
     public function firstStep(){
-        return view('pick-subscription');
+        $subscriptions = $this->get_all_subs();
+        return view('pick-subscription',[
+            'subscriptions' => $subscriptions
+        ]);
     }
 
     public function secondStep(Request $request){

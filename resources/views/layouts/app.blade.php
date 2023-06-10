@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <!-- Collapse -->
-                        <div class="collapse navbar-collapse" id="sidebarCollapse">
+                        <div class="sticky top-0 collapse navbar-collapse" id="sidebarCollapse">
                             <!-- Navigation -->
                             <ul class="navbar-nav">
                                 <li class="nav-item">
