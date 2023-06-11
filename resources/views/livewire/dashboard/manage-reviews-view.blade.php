@@ -89,7 +89,7 @@
                             @endforelse
                         </tbody>
                     </table>                    
-                    @if ($all_reviews == null)
+                    @if ($all_reviews->count() < 1)
                     <div class="item-center justify-content-center text-center">
                         <img style="width: 50%" src="https://static.vecteezy.com/system/resources/previews/002/423/039/original/feedback-and-giving-rating-design-concept-for-customer-satisfaction-illustration-vector.jpg">
                         <p>No Reviews Found.</p>

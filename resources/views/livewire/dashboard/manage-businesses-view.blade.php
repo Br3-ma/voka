@@ -101,7 +101,7 @@
                         </tbody>
                     </table>
                     
-                    @if ($all_businesses == null)
+                    @if ($all_businesses->count() < 1)
                     <div class="item-center justify-content-center text-center">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjK-I5If8VjGFLAzcTrU9S0BL_zXgYxjMiZA&usqp=CAU">
                         <p>Nothing Found.</p>
