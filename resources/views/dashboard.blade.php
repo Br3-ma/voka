@@ -9,7 +9,8 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0 py-4">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
+                                <h1 style="color: #41004a;
+                                " class="h2 mb-0 ls-tight">Dashboard</h1>
                             </div>
                         </div>
                         <!-- Nav -->
@@ -61,7 +62,7 @@
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
                                         <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>30%
+                                            <i class="bi bi-arrow-up me-1"></i>0%
                                         </span>
                                         <span class="text-nowrap text-xs text-muted">Since last month</span>
                                     </div>

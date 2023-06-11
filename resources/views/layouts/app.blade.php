@@ -26,11 +26,18 @@
 
             /* Bootstrap Icons */
             @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+            @import url('https://fonts.googleapis.com/css?family=Roboto');
+            .top-top-nav{
+                border-radius: 0px;
+                background: #60007a;
+                box-shadow: inset 15px 15px 23px #2f003c,
+                            inset -15px -15px 23px #9100b8;
+            }
         </style>
     </head>
     <body class="font-sans antialiased">
             <!-- Dashboard -->
-            
+            @include('layouts.__partials.navbar')
             <div class="d-flex w-full h-lg-full bg-surface-secondary">
                 <!-- Vertical Navbar -->
                 <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
@@ -39,11 +46,6 @@
                         <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <!-- Brand -->
-                        <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                            Vokamba
-                            {{-- <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="..."> --}}
-                        </a>
                         <!-- User menu (mobile) -->
                         <div class="navbar-user d-lg-none">
                             <!-- Dropdown -->
@@ -98,7 +100,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('manage-categories')}}">
+                                    <a class="nav-link" href="{{ route('manage-tags')}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
                                             <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
                                             <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
@@ -243,7 +245,7 @@
                 </nav>
 
                 <!-- Page Content -->
-                <main>
+                <main class="w-full">
                     {{ $slot }}
                 </main>
             </div>

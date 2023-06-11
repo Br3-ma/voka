@@ -14,7 +14,9 @@ use App\Http\Livewire\Dashboard\ManageCategoryView;
 use App\Http\Livewire\Dashboard\ManagePaymentsView;
 use App\Http\Livewire\Dashboard\ManageReviewsView;
 use App\Http\Livewire\Dashboard\ManageSubscriptionView;
+use App\Http\Livewire\Dashboard\ManageTagView;
 use App\Http\Livewire\Dashboard\Subscription\Create as SubscriptionCreate;
+use App\Http\Livewire\Dashboard\Tags\Create as TagsCreate;
 use App\Http\Livewire\Packages;
 use App\Http\Livewire\WriteReview;
 use Illuminate\Support\Facades\Route;
@@ -53,7 +55,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     
     Route::get('/manage-categories', ManageCategoryView::class)->name('manage-categories');
     Route::get('/create-a-category', CategoriesCreate::class)->name('create-category');
-
+    
+    Route::get('/manage-tags', ManageTagView::class)->name('manage-tags');
+    Route::get('/create-tags', TagsCreate::class)->name('create-tag');
 
     Route::get('/manage-business', ManageBusinessesView::class)->name('manage-business');
     Route::get('/create-business', Create::class)->name('create-business');

@@ -16,7 +16,7 @@ trait SubscriptionTrait{
     use WithPagination;
     public function get_all_subs(){
         return Cache::remember('sub_list', 60 * 60, function(){
-            return SubscriptionPackage::with('feature')->get();
+            return SubscriptionPackage::with('feature')->paginate(10);
         });
     }
 
