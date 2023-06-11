@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-default top-top-nav">
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-default top-top-nav">
     <div class="container-fluid">
       <a class="bg-white rounded-circle p-2 navbar-brand fw-bold" href="{{ url('/')}}" style="border-radius: 150px;
       background: linear-gradient(145deg, #e6e6e6, #ffffff);
