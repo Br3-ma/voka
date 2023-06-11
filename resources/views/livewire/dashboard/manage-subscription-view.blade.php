@@ -73,7 +73,7 @@
                         </tbody>
                     </table>
                     
-                    @if ($subscriptions == null)
+                    @if ($subscriptions->count() < 1)
                     <div class="item-center justify-content-center text-center">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9myXD7uZNAxE7tLQGVcUB91MlGVjmn_nAVbig4cP2Q0UzsjzEMtI8oRWGzGBPD11wdc&usqp=CAU">
                         <p>No Subscriptions Found.</p>
