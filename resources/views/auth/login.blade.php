@@ -319,7 +319,6 @@ body{
                 {{-- <button>Sign In</button><button>Sign Up</button> --}}
             </div>
             <x-validation-errors class="mb-4" />
-
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
                     {{ session('status') }}
