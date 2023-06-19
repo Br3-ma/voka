@@ -21,13 +21,14 @@ trait BusinessTrait{
     
     public function getBusiness($id){
         return Business::where('id', $id)->first();
+        // return Business::with('categories')->where('id', $id)->first();
     }
 
     //***************** CREATE ******
     public function create_business($req){
         try {
             if ($req->file('image_path')) {
-                $cover_image = Storage::put('public/business', $req->file('image_path'));
+                $cover_image = Storage::put('business', $req->file('image_path'));
             }
             $data = Business::create($req->toArray());
             $data->cover = isset($cover_image) ? $cover_image : '';

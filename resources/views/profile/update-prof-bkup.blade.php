@@ -1,4 +1,4 @@
-<x-form-section wire:ignore submit="updateProfileInformation">
+<x-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Profile Information') }}
     </x-slot>
@@ -12,21 +12,38 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="w-full">
                 <!-- Profile Photo File Input -->
+                <input type="file" class="hidden"
+                    id="room_type_image_create"
+                    wire:model="photo"
+                    x-ref="photo"
+                    x-on:change="
+                        photoName = $refs.photo.files[0].name;
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            photoPreview = e.target.result;
+                        };
+                        reader.readAsDataURL($refs.photo.files[0]);
+                " />
+
                 <x-label for="photo" value="{{ __('Photo') }}" />
-                <input type="file" class="hidden" id="select-profile-pic-user" wire:model="photo" />
 
-
-
-                <!-- New Profile Photo -->
-                <div id="addedNew" class="mt-2">
-                    <img id="preview-profile-pic-user" alt="{{ $this->user->name }}" class="w-1/4 h-1/4 rounded-circle me-2">
+                <!-- Current Profile Photo -->
+                <div class="mt-2" x-show="! photoPreview">
+                    <img id="preview-image-room_type" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
+                <!-- New Profile Photo Preview -->
+                <div class="mt-2" x-show="photoPreview" style="display: none;">
+                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
+                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    </span>
+                </div>
+
+                <x-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                    {{ __('Select A New Photo') }}
+                </x-secondary-button>
+
                 @if ($this->user->profile_photo_path)
-                    <!-- Current Profile Photo -->
-                    <div id="currentOldPic" class="mt-2">
-                        <img src="{{ asset('public/storage/'.$this->user->profile_photo_path) }}" alt="{{ $this->user->name }}" class="w-1/4 h-1/4 rounded-circle me-2">
-                    </div>
                     <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}
                     </x-secondary-button>
@@ -82,4 +99,16 @@
             {{ __('Save') }}
         </x-button>
     </x-slot>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $('#room_type_image_create').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => { 
+                    $('#preview-image-room_type').attr('src', e.target.result); 
+                }
+                reader.readAsDataURL(this.files[0]); 
+            });
+        });
+    </script>
 </x-form-section>

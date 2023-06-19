@@ -255,5 +255,17 @@
 
         @livewireScripts
     </body>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $('#select-profile-pic-user').change(function(){
+                $('#currentOldPic').hide();
+                let reader = new FileReader();
+                reader.onload = (e) => { 
+                    $('#preview-profile-pic-user').attr('src', e.target.result); 
+                }
+                reader.readAsDataURL(this.files[0]); 
+            });
+        });
+    </script>
 </html>

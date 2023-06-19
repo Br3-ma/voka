@@ -8,6 +8,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Livewire\BusinessDetail;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\Dashboard\Business\Create;
+use App\Http\Livewire\Dashboard\Business\Update;
 use App\Http\Livewire\Dashboard\Categories\Create as CategoriesCreate;
 use App\Http\Livewire\Dashboard\ManageBusinessesView;
 use App\Http\Livewire\Dashboard\ManageCategoryView;
@@ -71,4 +72,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     
     Route::resource('businesses', BusinessController::class);
+    Route::post('update-biz', [BusinessController::class, 'update'])->name('biz.update');
+    Route::get('edit-biz/{id}' , Update::class)->name('biz.edit');
 });

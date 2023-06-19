@@ -30,6 +30,10 @@ class Business extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function categories(){
+        return $this->hasMany(Category::class);
+    }
+
     public function review(){
         return $this->hasMany(BusinessReview::class);
     }

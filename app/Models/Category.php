@@ -17,4 +17,13 @@ class Category extends Model
     public function added_by(){
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function biz(){
+        return $this->belongsToMany(Business::class);
+    }
+
+
+
+    public static function CatName($id){
+        return Category::where('id', $id)->first()->name;
+    }
 }
