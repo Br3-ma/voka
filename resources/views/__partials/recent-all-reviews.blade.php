@@ -1,5 +1,5 @@
 @forelse ($recent_reviews as $review)
-<div class="w-1/4 flex-col p-2 h-auto border border-1 mt-2 rounded-md border-gray-100 hover:shadow-lg hover:transition ease-in-out duration-400 hover:mt-4">
+<div class="w-1/4 flex-col p-2 h-auto border border-1 mt-2 rounded-md border-gray-100 hover:shadow-lg hover:transition ease-in-out duration-400 hover:mt-2">
     <div class="md:flex-row justify-between w-full">
         <div class="mt pb-1 flex border-b border-gray-100 justify-start items-center flex-row space-x-2.5">
             <div>
@@ -41,7 +41,7 @@
         @include('livewire.__partials.rate-stars-person')
         <p class="truncated-paragraph mt-3 text-xs leading-normal text-gray-600 dark:text-gray-700 w-full md:w-9/12 xl:w-5/6">
             "{{ $review->review }}" 
-        </p><span><a href="#" class="text-purple-500 font-bold text-sm">Continue reading</a></span>
+        </p><span><a href="#" class="text-gray-400 font-bold text-sm">Continue reading</a></span>
 
     </div>
 </div>
