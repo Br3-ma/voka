@@ -1,11 +1,22 @@
 <div class="bg-white">
     @include('layouts.head')
-    <section class="w-full bg-cover bg-center mt-0 py-32" style="background-image: url('https://source.unsplash.com/random');">
+    <section class="w-full bg-cover bg-center mt-0 py-32" style="background-image: url('{{ asset("public/storage/".$biz->cover) }}');">
         <div class="text-white px-4">
             <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-white font-extrabold mb-6">
                 {{ $biz->name }}
             </h1>
-            @include('livewire.__partials.rate-stars')	
+            {{-- Average Rating --}}
+            <div class="flex items-center">
+                @for($i = 1; $i <= 5; $i++)
+                    @if(App\Models\BusinessReview::avarage_rating($biz->id) >= $i) 
+                        <svg aria-hidden="true" class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    @else
+                        <svg aria-hidden="true" class="w-8 h-8 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    @endif
+                @endfor
+                <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">{{ App\Models\BusinessReview::avarage_rating($biz->id) }} out of 5</p>
+            </div>
+            {{-- End Average Rating  --}}
             <div class="flex items-center space-x-2 my-2">
                 <div class="rounded-lg bg-gray-100 flex px-2">
                     <span class="font-bold text-indigo-600 text-sm">Food</span>
@@ -167,7 +178,18 @@
                                     <p class="text-xs">Lusaka, Zambia</p>
                                 </div>
                                 <div>
-                                    @include('livewire.__partials.rate-stars')  
+                                    {{-- Average Rating --}}
+                                    <div class="flex items-center">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if(App\Models\BusinessReview::avarage_rating($biz->id) >= $i) 
+                                                <svg aria-hidden="true" class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                            @else
+                                                <svg aria-hidden="true" class="w-6 h-6 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                            @endif
+                                        @endfor
+                                        <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">{{ App\Models\BusinessReview::avarage_rating($biz->id) }} out of 5</p>
+                                    </div>
+                                    {{-- End Average Rating  --}}  
                                     <small>
                                         <a target="_blank" href="{{ route('write-review', $biz->id) }}">
                                             With so few reviews, your opinion of {{ $biz->name }} could be huge. 

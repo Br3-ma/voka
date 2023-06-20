@@ -11,7 +11,7 @@
                         </svg>
                         Verified
                     </p>
-                    <div class="text-gray-900 font-extrabold text-2xl mb-2">Hungry Lion</div>
+                    <div class="text-gray-900 font-extrabold text-2xl mb-2">{{ $biz->name }}</div>
                     <a href="#" class="text-blue-500 text-base">Read our review guidelines</a>
                     </div>
                     <div>

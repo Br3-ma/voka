@@ -25,6 +25,7 @@ class BusinessReview extends Model
      */
     protected $appends = [
         'reviewer_name',
+        'reviewer_photo',
     ];
 
     public static function total(){
@@ -55,6 +56,11 @@ class BusinessReview extends Model
     public function getReviewerNameAttribute(){
         $name = User::where('id', $this->user_id)->first();
         return $name->fname.' '.$name->lname;
+    }
+
+    public function getReviewerPhotoAttribute(){
+        $user = User::where('id', $this->user_id)->first();
+        return $user->profile_photo_path;
     }
 
     public function reviewer(){

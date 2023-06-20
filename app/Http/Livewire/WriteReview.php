@@ -10,15 +10,14 @@ use Livewire\Component;
 class WriteReview extends Component
 {
     use ReviewTrait, BusinessTrait;
-    public $biz_id, $review, $recent_reviews;
+    public $biz, $review, $recent_reviews;
     public $rating = 0;
     public function mount($id){
-       $this->biz_id = 1;
-    //    this->biz_id = $this->getBusiness($id);
+       $this->biz = $this->getBusiness($id);
     }
     public function render()
     {
-        $this->recent_reviews = $this->get_biz_reviews(1);
+        $this->recent_reviews = $this->get_biz_reviews($this->biz->id);
         return view('livewire.write-review');
     }
 
@@ -28,7 +27,7 @@ class WriteReview extends Component
 
     public function publish(){
         $data = [
-            'business_id' => $this->biz_id,
+            'business_id' => $this->biz->id,
             'user_id' => auth()->user()->id,
             'rating' => $this->rating ?? 0,
             'review' => $this->review,

@@ -20,9 +20,6 @@ class Category extends Model
     public function biz(){
         return $this->belongsToMany(Business::class);
     }
-
-
-
     public static function CatName($id){
         return Category::where('id', $id)->first()->name;
     }
