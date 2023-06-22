@@ -127,80 +127,46 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Company</th>
-                                        <th scope="col">Offer</th>
-                                        <th scope="col">Meeting</th>
-                                        <th></th>
+                                        <th scope="col">Payment</th>
+                                        <th scope="col">Address</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    @forelse ($top_subscribers as $user)
                                     <tr>
                                         <td>
                                             <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
                                             <a class="text-heading font-semibold" href="#">
-                                                Kristin Watson
+                                                {{ $user->owner->fname.' '.$user->owner->lname }}
                                             </a>
                                         </td>
                                         <td>
-                                            Feb 15, 2021
+                                            {{ $user->created_at->toFormattedDateString() }}
+                                            <small>beta</small>
                                         </td>
                                         <td>
                                             <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-4.png" class="avatar avatar-xs rounded-circle me-2">
                                             <a class="text-heading font-semibold" href="#">
-                                                Mailchimp
+                                                {{ $user->name }}
                                             </a>
                                         </td>
                                         <td>
-                                            $3.500
+                                            K0.00
                                         </td>
                                         <td>
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-dark"></i>Not discussed
-                                            </span>
+                                            {{ $user->address ?? '' }}<br>
+                                            {{ $user->phone1 ?? '' }}<br>
+                                            {{ $user->email ?? '' }}
                                         </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img alt="..." src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Cody Fisher
-                                            </a>
-                                        </td>
-                                        <td>
-                                            Apr 10, 2021
-                                        </td>
-                                        <td>
-                                            <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Webpixels
-                                            </a>
-                                        </td>
-                                        <td>
-                                            $1.500
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-danger"></i>Canceled
-                                            </span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    </tr>                                        
+                                    @empty
+                                        
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+                            <button class="text-muted text-sm">View more</button>
                         </div>
                     </div>
                 </div>

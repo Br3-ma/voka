@@ -4,6 +4,7 @@ use App\Http\Controllers\AddBusinessController;
 use App\Http\Controllers\Api\BusinessController;
 use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Livewire\BusinessDetail;
 use App\Http\Livewire\Categories;
@@ -46,9 +47,8 @@ Route::post('/business-registration-submission', [AddBusinessController::class, 
 
 // Auths
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', function () { 
-        return view('dashboard'); 
-    })->name('dashboard');
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/write-a-review/{id}', WriteReview::class)->name('write-review');
     
     Route::get('/manage-reviews', ManageReviewsView::class)->name('manage-reviews');

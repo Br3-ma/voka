@@ -36,6 +36,7 @@
         </style>
     </head>
     <body class="font-sans antialiased">
+
             <!-- Dashboard -->
             @include('layouts.__partials.navbar')
             <div class="d-flex w-full h-lg-full bg-surface-secondary">

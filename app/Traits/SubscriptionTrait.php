@@ -14,6 +14,12 @@ use Livewire\WithPagination;
 
 trait SubscriptionTrait{
     use WithPagination;
+    
+    public function get_top5_subscribers(){
+        $users = Business::with('owner')->latest()->take(5)->get();
+        return $users;
+    }
+
     public function get_all_subs(){
         return Cache::remember('sub_list', 60 * 60, function(){
             return SubscriptionPackage::with('feature')->paginate(10);
