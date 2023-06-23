@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="modal-content">
-        <form id="create-business-entity" method="post" action="{{ route('businesses.store') }}" class="form-state form needs-validation" validate enctype="multipart/form-data">
+        <form id="create-business-entity" action="{{ route('businesses.store') }}" class="needs-validation" validate enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="col-lg-12">
@@ -97,11 +97,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
-
 <script src="{{ asset('public/js/business.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
-        $('.isLoading').hide();
         $('#room_type_image_create').change(function(){
             let reader = new FileReader();
             reader.onload = (e) => { 
