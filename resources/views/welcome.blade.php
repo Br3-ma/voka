@@ -55,16 +55,12 @@
                         </button> --}}
                     </div>
                 </div>
-                <div class="grid grid-cols-5 grid-rows-4 gap-4 md:w-5/12 lg:w-6/12">
-                    <div class="col-span-2 row-span-4">
-                        <img src="https://tailus.io/sources/blocks/ecommerce-site/preview/images/products/kushagra.webp" class="rounded-full" width="640" height="960" alt="shoes" loading="lazy">
-                    </div>
-                    <div class="col-span-2 row-span-2">
-                        <img src="https://tailus.io/sources/blocks/ecommerce-site/preview/images/products/iman.webp" class="w-full h-full object-cover object-top rounded-xl" width="640" height="640" alt="shoe" loading="lazy">
-                    </div>
-                    <div class="col-span-3 row-span-3">
-                        <img src="https://tailus.io/sources/blocks/ecommerce-site/preview/images/products/daniel.webp" class="w-full h-full object-cover object-top rounded-xl" width="640" height="427" alt="shoes" loading="lazy">
-                    </div>
+                <div style="border-radius: 50px;border-radius: 27px;
+                background: linear-gradient(145deg, #0a0017, #0c001b);
+                box-shadow:  39px 39px 78px #04000a,
+                             -39px -39px 78px #120028;" class="py-16 p-6 md:w-5/12 lg:w-6/12">
+                    <h2 class="text-gray-400 font-extrabold xl:text-5xl md:text-3xl text-xl">Our 2022 Transparency Report has landed</h2>
+                    <p class="my-4">We’re looking back on a year unlike any other. Read about how we ensure our platform’s integrity.</p>
                 </div>
             </div>
         </div>

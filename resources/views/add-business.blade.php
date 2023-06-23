@@ -239,19 +239,11 @@
         });
 
         $(".goto5").click(() => {
-            var inputField = document.getElementById("category_ids");
-            if (inputField.value === '') {
-                inputField.classList.add("shake");
-                setTimeout(function() {
-                    inputField.classList.remove("shake");
-                }, 500);
-            } else {
-                $("#mystep1").hide();
-                $("#mystep2").hide();
-                $("#mystep3").hide();
-                $("#mystep4").hide();
-                $("#mystep5").show();
-            } 
+            $("#mystep1").hide();
+            $("#mystep2").hide();
+            $("#mystep3").hide();
+            $("#mystep4").hide();
+            $("#mystep5").show();
         });
 
     function catID(id){

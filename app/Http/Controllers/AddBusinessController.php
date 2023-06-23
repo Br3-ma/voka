@@ -49,7 +49,7 @@ class AddBusinessController extends Controller
     {
         try {
             $data = $request->toArray();
-
+            // dd($data['categories']);
                         // Create login account
             $user = $this->registerUser($request);
 
@@ -61,14 +61,14 @@ class AddBusinessController extends Controller
                 'category_id' => $data['category_ids'],
                 'sub_category_id' => $data['category_ids'],
                 // 'description' => $name,
-                'status' => 0,
+                'status~' => 0,
                 // 'address' => $data['address'],
                 'email' =>  $data['email'],
                 'phone1' => $data['phone'],
                 // 'phone2' => $name,
                 // 'country' => $name,
                 // 'sector' => $name,
-                'categories' => $data['category_ids']
+                'categories' => $data['categories']
             ]);
 
             return view('payment-summary',[
