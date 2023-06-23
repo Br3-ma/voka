@@ -39,13 +39,12 @@
                                         <span class="text-danger">*</span>
                                     </label>
                                     <select name="category_id" class="form-control default-select">
-                                        <option value="" data-display="Select">Select One</option>
-                                        <option value="1">Food</option>
-                                        <option value="2">Agriculture</option>
-                                        <option value="3">Engineering</option>
-                                        <option value="4">Accounting</option>
-                                        <option value="5">Construction</option>
-                                        <option value="6">Health</option>
+                                        <option value="" data-display="Select"> --choose--</option>
+                                        @forelse ($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        @empty
+                                            
+                                        @endforelse
                                     </select>
                                 </div>
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" />
