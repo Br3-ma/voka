@@ -9,6 +9,7 @@
     <script>
       $(document).ready(function() {
         var maxLength = 90; // Maximum number of characters
+        var maxLength2 = 300; // Maximum number of characters
         var truncationText = '...'; // Truncation indicator
 
         $('.truncated-paragraph').each(function() {
@@ -17,6 +18,14 @@
             $(this).text(content.substring(0, maxLength) + truncationText);
           }
         });
+
+        $('.truncated-paragraph-less').each(function() {
+          var content = $(this).text();
+          if (content.length > maxLength2) {
+            $(this).text(content.substring(0, maxLength) + truncationText);
+          }
+        });
+
       });
 
     </script>
