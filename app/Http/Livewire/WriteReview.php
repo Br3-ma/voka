@@ -12,13 +12,15 @@ class WriteReview extends Component
     use ReviewTrait, BusinessTrait;
     public $biz, $review, $recent_reviews;
     public $rating = 0;
+
     public function mount($id){
        $this->biz = $this->getBusiness($id);
     }
+
     public function render()
     {
         $this->recent_reviews = $this->get_biz_reviews($this->biz->id);
-        return view('livewire.write-review');
+        return view('livewire.write-review')->layout('layouts.app-plain');
     }
 
     public function rate($value){

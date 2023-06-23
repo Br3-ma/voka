@@ -16,6 +16,7 @@
 
         {{-- @vite('resources/css/app.css') --}}
               
+        @livewireStyles
         <script>
             // Hide the preloader when the page finishes loading
             window.addEventListener('load', function() {
@@ -89,13 +90,13 @@
           </style>
     </head>
     <body>
-            <!-- Preloader HTML -->
-            <div class="preloader">
-                <div class="spinner">
-                    <div class="cube1"></div>
-                    <div class="cube2"></div>
-                </div>
+        <!-- Preloader HTML -->
+        <div class="preloader">
+            <div class="spinner">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
             </div>
+        </div>
         <div class="text-primary">
             <div class="border py-3 px-6">
                 <div class="flex justify-between">
@@ -103,11 +104,7 @@
                         <img class="h-10 w-10 text-red-500" src="{{ asset('public/img/logo.png') }}">
                         <span class="ml-2 font-semibold text-purple-800">Vookamba</span>
                     </a>
-            
-                    
                 </div>
-            
-                
             </div>
         </div>
 

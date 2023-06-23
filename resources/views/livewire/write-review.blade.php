@@ -1,5 +1,4 @@
 <div class="bg-white">
-    @include('layouts.head-plain')
     <div class="bg-white flex ">
         <div class="w-3/4">
             <div class="max-w-sm w-full lg:max-w-full">
@@ -14,7 +13,7 @@
                     <div class="text-gray-900 font-extrabold text-2xl mb-2">{{ $biz->name }}</div>
                     <a href="#" class="text-blue-500 text-base">Read our review guidelines</a>
                     </div>
-                    <div>
+                    <div class="py-2">
                         @include('livewire.__partials.rate-stars-edit')
                     </div>
                     <div class="flex items-center">
@@ -48,7 +47,7 @@
                                 </div>
                                 <div class="flex flex-col justify-start items-start space-y-2">
                                     <p class="text-xs font-medium leading-none text-gray-800 dark:text-gray-700">{{ $review->reviewer_name }}</p>
-                                    <p class="text-xs leading-none text-gray-600 dark:text-gray-700">{{ $review->created_at->toFormattedDateString()}}</p>
+                                    <p class="text-xs truncated-paragraph leading-none text-gray-600 dark:text-gray-700">{{ $review->created_at->toFormattedDateString()}}</p>
                                 </div>
                             </div>
                              
@@ -85,3 +84,4 @@
     </div>
     @include('layouts.footer')
 </div>
+

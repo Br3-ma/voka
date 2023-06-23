@@ -1,10 +1,13 @@
 <div class="flex items-center space-x-2">
     @for($i = 1; $i <= 5; $i++)
-        <button wire:click="rate({{ $i }})"
+        <button style="border-radius: 50%;
+        background: linear-gradient(145deg, #dcd8dd, #ffffff);
+        box-shadow:  5px 5px 9px #f2eef3,
+                     -5px -5px 9px #f6f2f7;" wire:click="rate({{ $i }})"
                 @if($rating >= $i) 
-                    class="px-4 py-2 text-5xl font-medium text-center text-yellow-400 rounded-md bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800" 
+                    class="px-4 pt-2 pb-4 text-5xl font-extrabold text-center text-[#FFD100] rounded-md bg-gradient-to-r from-gray-100 via-white to-gray-100 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800" 
                 @else 
-                    class="px-4 py-2 text-5xl font-medium text-center text-white rounded-md bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800" 
+                    class="px-4 pt-2 pb-4 text-5xl font-extrabold text-center text-gray-100 rounded-md bg-gradient-to-r from-gray-100 via-white to-gray-100 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800" 
                 @endif
         >
             &#9733;

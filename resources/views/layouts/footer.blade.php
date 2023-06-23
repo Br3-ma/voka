@@ -1,5 +1,9 @@
 
     {{-- @vite('resources/js/app.js') --}}
+    
+    @stack('modals')
+
+    @livewireScripts
     </body>
     <footer>
       <!-- Top Footer Area Start -->
