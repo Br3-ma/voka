@@ -39,7 +39,7 @@ trait ReviewTrait{
     }
 
     public function get_all_reviews(){
-        $reviews = BusinessReview::with('business')->get();
+        $reviews = BusinessReview::with('business')->latest()->get();
         // $reviews = Cache::remember('reviews_list', 60 * 60, function(){
         //     return BusinessReview::with('business')->get();
         // });
