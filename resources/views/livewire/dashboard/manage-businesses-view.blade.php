@@ -64,6 +64,7 @@
                     <table class="table table-hover table-nowrap">
                         <thead class="thead-light">
                             <tr>
+                                <th></th>
                                 <th scope="col">Company</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Rating</th>
@@ -73,6 +74,9 @@
                         <tbody>
                             @forelse ($all_businesses as $biz)
                                 <tr>
+                                    <td>
+                                        <input type="checkbox" id="biz">
+                                    </td>
                                     <td>
                                         @if ($biz->cover !== null)
                                             <img alt="..." src="{{ asset('public/storage/'.$biz->cover) }}" class="avatar avatar-xs rounded-circle me-2">

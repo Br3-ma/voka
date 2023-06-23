@@ -15,4 +15,13 @@ class ManageBusinessesView extends Component
             'all_businesses'=> $all_businesses
         ]);
     }
+
+
+    public function delete($id){
+
+    }
+
+    public function deleteBulk( ){
+
+    }
 }
