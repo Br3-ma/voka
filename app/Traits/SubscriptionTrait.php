@@ -54,4 +54,25 @@ trait SubscriptionTrait{
         });
         return $bool;
     }
+
+    
+    
+    public function delete_subscription($id){
+        try {
+            SubscriptionPackage::where('id', $id)->delete();
+            SubscriptionFeature::where('subscription_id', $id)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+    public function deleteSubscriptions($array){
+        try {
+            SubscriptionPackage::whereIn('id', $array)->delete();
+            SubscriptionFeature::whereIn('subscription_id', $array)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

@@ -31,13 +31,14 @@
     <main class="py-6 bg-surface-secondary">
         <div class="container-fluid">
             <div class="card shadow border-0 mb-7">
-                <div class="card-header">
+                <div class="card-header justify-content-between d-flex w-full">
                     <h5 class="mb-0">Subscription Packages</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap">
                         <thead class="thead-light">
                             <tr>
+                                <th></th>
                                 <th scope="col">Package Name</th>
                                 {{-- <th scope="col">Description</th> --}}
                                 <th scope="col">Total Costs</th>

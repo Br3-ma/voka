@@ -57,8 +57,14 @@
             <!-- Card stats -->
             
             <div class="card shadow border-0 mb-7">
-                <div class="card-header">
+                <div class="card-header justify-content-between d-flex w-full">
                     <h5 class="mb-0">Business & Companies</h5>
+                    @if (!empty($selectedItems))
+                        <button wire:click="deleteBulk" class="btn btn-sm btn-square btn-danger text-danger-hover" 
+                            onclick="return confirm('Are you sure you want to delete the selected items?');">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    @endif
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap">
@@ -66,7 +72,7 @@
                             <tr>
                                 <th></th>
                                 <th scope="col">Company</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Date Added</th>
                                 <th scope="col">Rating</th>
                                 <th></th>
                             </tr>
@@ -75,7 +81,7 @@
                             @forelse ($all_businesses as $biz)
                                 <tr>
                                     <td>
-                                        <input type="checkbox" id="biz">
+                                        <input type="checkbox" id="biz{{ $biz->id }}" wire:model="selectedItems" value="{{ $biz->id }}">
                                     </td>
                                     <td>
                                         @if ($biz->cover !== null)
@@ -88,7 +94,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        {{ $biz->created_at }}
+                                        {{ $biz->created_at->toFormattedDateString() }}
                                     </td>
                                     <td>
                                         <div class="flex items-center">

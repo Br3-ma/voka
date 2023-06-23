@@ -31,13 +31,20 @@
     <main class="py-6 bg-surface-secondary">
         <div class="container-fluid">
             <div class="card shadow border-0 mb-7">
-                <div class="card-header">
+                <div class="card-header justify-content-between d-flex w-full">
                     <h5 class="mb-0">Subscription Packages</h5>
+                    @if (!empty($selectedItems))
+                        <button wire:click="deleteBulk" class="btn btn-sm btn-square btn-danger text-danger-hover" 
+                            onclick="return confirm('Are you sure you want to delete the selected items?');">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    @endif
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap">
                         <thead class="thead-light">
                             <tr>
+                                <th></th>
                                 <th scope="col">Package Name</th>
                                 {{-- <th scope="col">Description</th> --}}
                                 <th scope="col">Total Costs</th>
@@ -48,6 +55,10 @@
                         </thead>
                         <tbody>
                         @forelse ($subscriptions as $sub)
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="sub{{ $sub->id }}" wire:model="selectedItems" value="{{ $sub->id }}">
+                            </td>
                             <td class="">{{ $sub->name }}</td>
                             {{-- <td class="">{{ $sub->description }}</td> --}}
                             <td class="">{{ $sub->price }}</td>
@@ -67,6 +78,7 @@
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </td>
+                        </tr>
                         @empty
                                 
                         @endforelse

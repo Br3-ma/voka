@@ -39,4 +39,23 @@ trait BusinessTrait{
             return false;
         }
     }
+    
+    public function delete_biz($id){
+        try {
+            Business::where('id', $id)->delete();
+            BusinessReview::where('business_id', $id)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+    public function deleteMany($array){
+        try {
+            Business::where('id', $array)->delete();
+            BusinessReview::whereIn('business_id', $array)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

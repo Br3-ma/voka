@@ -75,4 +75,27 @@ trait ReviewTrait{
             return false;
         }
     }
+
+
+
+
+
+    
+    public function delete_review($id){
+        try {
+            BusinessReview::where('id', $id)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function deleteReviews($array){
+        try {
+            BusinessReview::whereIn('id', $array)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

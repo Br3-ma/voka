@@ -35,13 +35,20 @@
             <!-- Card stats -->
             
             <div class="card shadow border-0 mb-7">
-                <div class="card-header">
+                <div class="card-header justify-content-between d-flex w-full">
                     <h5 class="mb-0">All Categories</h5>
+                    @if (!empty($selectedItems))
+                        <button wire:click="deleteBulk" class="btn btn-sm btn-square btn-danger text-danger-hover" 
+                            onclick="return confirm('Are you sure you want to delete the selected items?');">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    @endif
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap">
                         <thead class="thead-light">
                             <tr>
+                                <th></th>
                                 <th scope="col">Category Name</th>
                                 <th scope="col">Added By</th>
                                 <th scope="col">Date Created</th>
@@ -52,6 +59,9 @@
                         <tbody>
                             @forelse ($all_categories as $cat)
                                 <tr>
+                                    <td>
+                                        <input type="checkbox" id="cat{{ $cat->id }}" wire:model="selectedItems" value="{{ $cat->id }}">
+                                    </td>
                                     <td>
                                         <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">

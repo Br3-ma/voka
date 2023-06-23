@@ -35,13 +35,14 @@
             <!-- Card stats -->
             
             <div class="card shadow border-0 mb-7">
-                <div class="card-header">
+                <div class="card-header justify-content-between d-flex w-full">
                     <h5 class="mb-0">All Tags</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap">
                         <thead class="thead-light">
                             <tr>
+                                <th></th>
                                 <th scope="col">Tag Name</th>
                                 <th scope="col">Added By</th>
                                 <th scope="col">Date Created</th>
@@ -52,6 +53,9 @@
                         <tbody>
                             @forelse ($all_tags as $tag)
                                 <tr>
+                                    <td>
+                                        <input type="checkbox" id="tag{{ $tag->id }}" wire:model="selectedItems" value="{{ $tag->id }}">
+                                    </td>
                                     <td>
                                         <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">

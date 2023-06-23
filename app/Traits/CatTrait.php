@@ -37,4 +37,36 @@ trait CatTrait{
         }
     }
 
+
+
+
+
+
+    
+    public function delete_cat($id){
+        try {
+            Category::where('id', $id)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function deleteCategories($array){
+        try {
+            Category::whereIn('id', $array)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+    public function deleteTags($array){
+        try {
+            Tag::whereIn('id', $array)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
 }
