@@ -36,15 +36,15 @@ class BusinessController extends Controller
         $data = $this->create_business($req);
         if($data){
             return response()->json([
-                'title' => 'Great!',
+                'title' => 'Business created successfully.',
                 'message' => 'Business created successfully.',
                 'code' => 'success'
             ]);
         }else{
             return response()->json([
-                'title' => 'Oops ..',
+                'title' => 'Oops .. Failed to create Business',
                 'message' => 'Failed to create Business, check your entries and try again.',
-                'code' => 'success'
+                'code' => 'error'
             ]);
         }
     }

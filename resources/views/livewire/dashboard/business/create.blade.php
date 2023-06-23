@@ -1,3 +1,18 @@
+<style>
+    .ml4 {
+        position: relative;
+        font-weight: 900;
+        font-size: 4.5em;
+    }
+    .ml4 .letters {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        top: 0.3em;
+        right: 0;
+        opacity: 0; 
+    }
+</style>
 <div wire:ignore class="" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="row align-items-center p-4">
         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
@@ -5,7 +20,7 @@
         </div>
     </div>
     <div class="modal-content">
-        <form id="create-business-entity" action="{{ route('businesses.store') }}" class="needs-validation" validate enctype="multipart/form-data">
+        <form id="create-business-entity" method="post" action="{{ route('businesses.store') }}" class="form-state form needs-validation" validate enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="col-lg-12">
@@ -69,12 +84,24 @@
                 <button type="submit" class="btn btn-primary light" >Save changes</button>
             </div>  
         </form>
+        <div class="isLoading">
+            <h1 class="ml4">
+                <span class="letters letters-1">Setting Up</span>
+                <span class="letters letters-2">Almost Done..</span>
+                <span class="letters letters-3">Getting Ready</span>
+            </h1>
+        </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+
 <script src="{{ asset('public/js/business.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
+        $('.isLoading').hide();
         $('#room_type_image_create').change(function(){
             let reader = new FileReader();
             reader.onload = (e) => { 
@@ -82,5 +109,59 @@
             }
             reader.readAsDataURL(this.files[0]); 
         });
+
+
+        var ml4 = {};
+        ml4.opacityIn = [0,1];
+        ml4.scaleIn = [0.2, 1];
+        ml4.scaleOut = 3;
+        ml4.durationIn = 800;
+        ml4.durationOut = 600;
+        ml4.delay = 500;
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.ml4 .letters-1',
+            opacity: ml4.opacityIn,
+            scale: ml4.scaleIn,
+            duration: ml4.durationIn
+        }).add({
+            targets: '.ml4 .letters-1',
+            opacity: 0,
+            scale: ml4.scaleOut,
+            duration: ml4.durationOut,
+            easing: "easeInExpo",
+            delay: ml4.delay
+        }).add({
+            targets: '.ml4 .letters-2',
+            opacity: ml4.opacityIn,
+            scale: ml4.scaleIn,
+            duration: ml4.durationIn
+        }).add({
+            targets: '.ml4 .letters-2',
+            opacity: 0,
+            scale: ml4.scaleOut,
+            duration: ml4.durationOut,
+            easing: "easeInExpo",
+            delay: ml4.delay
+        }).add({
+            targets: '.ml4 .letters-3',
+            opacity: ml4.opacityIn,
+            scale: ml4.scaleIn,
+            duration: ml4.durationIn
+        }).add({
+            targets: '.ml4 .letters-3',
+            opacity: 0,
+            scale: ml4.scaleOut,
+            duration: ml4.durationOut,
+            easing: "easeInExpo",
+            delay: ml4.delay
+        }).add({
+            targets: '.ml4',
+            opacity: 0,
+            duration: 500,
+            delay: 500
+        });
     });
+
 </script>
