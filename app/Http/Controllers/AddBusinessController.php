@@ -30,7 +30,9 @@ class AddBusinessController extends Controller
         return view('add-business',[
             'amount' => $amount,
             'type'=> $type,
-            'categories'=> $categories
+            'categories'=> $categories,
+            'state' => 'ok',
+            'used_email' => ''
         ]);
     }
 
@@ -49,27 +51,42 @@ class AddBusinessController extends Controller
     {
         try {
             $data = $request->toArray();
-            // dd($data['categories']);
-                        // Create login account
-            $user = $this->registerUser($request);
-
-            // Create business and set status to inactive
-            Business::create([
-                // 'cover',
-                'name' => $data['name'],
-                'user_id' => $user->id,
-                'category_id' => $data['category_ids'],
-                'sub_category_id' => $data['category_ids'],
-                // 'description' => $name,
-                'status' => 0,
-                // 'address' => $data['address'],
-                'email' =>  $data['email'],
-                'phone1' => $data['phone'],
-                // 'phone2' => $name,
-                // 'country' => $name,
-                // 'sector' => $name,
-                'categories' => $data['categories']
-            ]);
+                
+            if(auth()->user()){
+                // Create business and set status to inactive
+                $convertedArray = array_map('intval', $data['categories']);
+                Business::create([
+                    'name' => $data['name'],
+                    'user_id' => auth()->user()->id,
+                    'category_id' => $data['category_ids'],
+                    'sub_category_id' => $data['category_ids'],
+                    'status' => 0,
+                    'email' =>  $data['email'],
+                    'phone1' => $data['phone'],
+                    'categories' => json_encode($data['categories'])
+                ]);
+            }else{
+                $user = $this->registerOwner($request);
+                // Create business and set status to inactive
+                
+                $convertedArray = array_map('intval', $data['categories']);
+                Business::create([
+                    // 'cover',
+                    'name' => $data['name'],
+                    'user_id' => $user->id,
+                    'category_id' => $data['category_ids'],
+                    'sub_category_id' => $data['category_ids'],
+                    // 'description' => $name,
+                    'status' => 0,
+                    // 'address' => $data['address'],
+                    'email' =>  $data['email'],
+                    'phone1' => $data['phone'],
+                    // 'phone2' => $name,
+                    // 'country' => $name,
+                    // 'sector' => $name,
+                    'categories' => json_encode($data['categories']) 
+                ]);
+            }
 
             return view('payment-summary',[
                 'biz_name' => $data['name'],
@@ -79,19 +96,18 @@ class AddBusinessController extends Controller
                 'type' => $data['type'],
                 'fname' => $data['fname'],
                 'lname' => $data['lname'],
-                'email' => $data['email']
+                'email' => $data['email'],
+                'state' => 'ok'
             ]);
         } catch (\Throwable $th) {
             dd($th);
-            return view('payment-summary',[
-                'biz_name' => $data['name'],
-                'biz_email' => $data['email'],
-                'biz_phone' => $data['phone'],
+            $categories = Category::get();
+            return view('add-business',[
                 'amount' => $data['amount'],
                 'type' => $data['type'],
-                'fname' => $data['fname'],
-                'lname' => $data['lname'],
-                'email' => $data['email']
+                'categories' => $categories,
+                'state' => 'error',
+                'used_email' => $data['username']
             ]);
         }
 

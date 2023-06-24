@@ -29,8 +29,10 @@ class CategoriesController extends Controller
 
             // Retrieve the Businesses and filter the results based on the selected checkboxes
             if(is_array($selectedCategories) && !empty($selectedCategories)){
+                
                 $query = '';
                 $convertedArray = array_map('intval', $selectedCategories);
+                // dd($convertedArray);
                 $biz = Business::whereIn('categories', $convertedArray)->get();
 
             }elseif($selectedCategories !== null){

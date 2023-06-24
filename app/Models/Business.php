@@ -25,7 +25,11 @@ class Business extends Model
         'sector',
         'categories'
     ];
+    protected $casts = [
+        'categories' => 'array'
+    ];
 
+    
     public function owner(){
         return $this->belongsTo(User::class, 'user_id');
     }

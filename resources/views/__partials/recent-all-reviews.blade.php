@@ -40,14 +40,19 @@
         @endif
         @include('livewire.__partials.rate-stars-person')
         <p class="
-        @if ($review->business !== null && $review->business->cover !== null)
-        truncated-paragraph 
-        @else
-        truncated-paragraph-less
-        @endif
-        mt-3 text-xs leading-normal text-gray-600 dark:text-gray-700 w-full md:w-9/12 xl:w-5/6">
+            @if ($review->business !== null && $review->business->cover !== null)
+            truncated-paragraph 
+            @else
+            truncated-paragraph-less
+            @endif
+            mt-3 text-xs leading-normal text-gray-600 dark:text-gray-700 w-full md:w-9/12 xl:w-5/6">
             "{{ $review->review }}" 
-        </p><span><a href="#" class="text-gray-400 font-bold text-sm">Continue reading</a></span>
+        </p>
+        <span>
+            @if ($review->business !== null)
+            <a target="_blank" href="{{ route('business-detail', [$review->business->id,$review->id])}}" class="text-gray-400 font-bold text-sm">Continue reading</a>
+            @endif
+        </span>
 
     </div>
 </div>

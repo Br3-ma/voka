@@ -406,3 +406,12 @@ src: url(data:font/truetype;charset=utf-8;base64,T1RUTwAMAIAAAwBAQ0ZGICKM+QwAABC
 font-weight: inherit;
 font-style: inherit;
 }
+
+
+/* Search Bar Css */
+  input{
+    border:1px #a609c5 solid;
+    border-radius: 0%;
+  }
+
+  

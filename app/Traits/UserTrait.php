@@ -15,6 +15,27 @@ trait UserTrait{
                 $user = User::create([
                     'fname' => $input['fname'],
                     'lname' => $input['lname'],
+                    'type' => 'user',
+                    'email' => $input['username'],
+                    'password' => Hash::make($input['password']),
+                    'terms' => 'accepted'
+                ]);
+                // $user->assignRole('user');
+                return $user;
+        }else{
+            return $check;
+        }
+        
+    }
+    public function registerOwner($req){
+        $input = $req->toArray();
+        // $password = 'vokamba-'.now();
+        $check = User::where('email', $input['email'])->first();
+        if($check == null){
+                $user = User::create([
+                    'fname' => $input['fname'],
+                    'lname' => $input['lname'],
+                    'type' => 'owner',
                     'email' => $input['username'],
                     'password' => Hash::make($input['password']),
                     'terms' => 'accepted'

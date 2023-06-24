@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Traits\BusinessTrait;
+use App\Traits\ReviewTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BusinessDetailsController extends Controller
 {
-    use BusinessTrait;
+    use BusinessTrait, ReviewTrait;
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index($id, $rev = null)
     {
-        $biz = $this->getBusiness($id);
+        $user_review = Cache::remember('review_detail', 60 * 60, function() use ($rev){
+            return $this->get_review($rev);
+        });
+        $biz = Cache::remember('biz_info', 60 * 60, function() use ($id){
+            return $this->getBusiness($id);
+        });
         return view('livewire.business-detail',[
-            'biz' => $biz
+            'biz' => $biz,
+            'review' => $user_review
         ]);
     }
 

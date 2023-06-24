@@ -33,6 +33,11 @@ trait ReviewTrait{
         return $average;
     }
 
+    public function get_review($id){
+        return BusinessReview::where('id', $id)->with('business.owner')
+                                ->with('reviewer')->first();
+    }
+
     public function all_reviews(){
         return BusinessReview::with('business.owner')
                                 ->with('reviewer')->paginate(10 );

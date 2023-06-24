@@ -189,6 +189,7 @@
       </svg>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
       $(document).ready(function() {
         var maxLength = 90; // Maximum number of characters
@@ -305,5 +306,7 @@ document.addEventListener('touchstart', handleMouseDown)
 document.addEventListener('touchmove', handleMouseMove)
 document.addEventListener('touchend', handleMouseUp)
 
+
+$(".category").chosen({disable_search_threshold: 10});
     </script>
 </html>

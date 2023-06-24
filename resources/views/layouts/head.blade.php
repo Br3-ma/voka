@@ -16,6 +16,7 @@
         <!-- Styles -->
         <link rel="icon" type="image/png" href="{{ asset('public/img/logo.png') }}">
         <link rel="stylesheet" src="{{ asset('public/assets/css/footer.css') }}">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('public/assets/css/voo.css') }}">
         <script src="https://cdn.tailwindcss.com"></script>
               
@@ -45,7 +46,14 @@
             
                     <div class="ml-6 flex flex-1 gap-x-3 mt-2">
                         <form action="{{ route('search') }}" method="GET" class="w-full">
-                            <input type="text" name="query" class="w-full rounded-md border border-[#DDE2E4] px-3 py-2 text-sm" placeholder="Ex. Zanaco" />
+                            <div class="w-full flex">
+                                <input type="text" name="query" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Ex. Zanaco" />
+                                <button type="submit" class="btn bg-[#a609c5] p-3 relative font-extrabold text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </form>
                     </div>
             

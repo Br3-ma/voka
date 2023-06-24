@@ -175,12 +175,23 @@
     </section>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+    var state = '{{ isset($state) }}';
+    
         $("#mystep2").hide();
         $("#mystep3").hide();
         $("#mystep4").hide();
         $("#mystep5").hide();
       
+        if(state === 'error'){
+            toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+            toastr.error('You may have used an email already with an account. {{ $used_email }}', 'Oops.. Try again');
+            toastr.options.closeEasing = 'swing';
+            toastr.options.closeMethod = 'fadeOut';
+            toastr.options.closeDuration = 300;
+            toastr.options.progressBar = true;
+        }
         $(".goto1").click(() => {
             $("#mystep1").show();
             $("#mystep2").hide();

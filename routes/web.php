@@ -40,7 +40,7 @@ Route::get('/subscription-packages', [AddBusinessController::class, 'firstStep']
 Route::get('/business-registration', [AddBusinessController::class, 'secondStep'])->name('biz-reg');
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
 Route::get('/search', [CategoriesController::class, 'search'])->name('search');
-Route::get('/business/{id}',[BusinessDetailsController::class, 'index'])->name('business-detail');
+Route::get('/business/{id}/{rev?}',[BusinessDetailsController::class, 'index'])->name('business-detail');
 
 // Posts
 Route::post('/business-registration-submission', [AddBusinessController::class, 'store'])->name('biz-store');
