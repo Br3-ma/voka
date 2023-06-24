@@ -46,7 +46,7 @@
             
                     <div class="ml-6 flex flex-1 gap-x-3 mt-2">
                         <form action="{{ route('search') }}" method="GET" class="w-full">
-                            <div class="w-full flex">
+                            <div class="w-full flex shadow-md">
                                 <input type="text" name="query" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Ex. Zanaco" />
                                 <button type="submit" class="btn bg-[#a609c5] p-3 relative font-extrabold text-white rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
