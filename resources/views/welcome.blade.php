@@ -1,16 +1,17 @@
 @include('layouts.head')
-    <section class="w-full bg-cover bg-center -mt-10 py-32" style="background-image: url('{{asset("public/img/1.jpg")}}');">
-        <div class=" mx-auto text-center text-white">
+    {{-- <section class="w-full bg-cover bg-center -mt-10 py-32" --}}
+    @include('livewire.__partials.slide-banner')
+        {{-- <div class=" mx-auto text-center text-white">
             <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-center text-white font-extrabold mb-6">
                 Read reviews. Write reviews.
                 <br/>
                 Find companies you can trust.
             </h1>
-            {{-- <p class="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
-                gravida pellentesque urna varius vitae.</p> --}}
+            <p class="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
+                gravida pellentesque urna varius vitae.</p>
             <a target="_bank" href="{{ route('register') }}" class="bg-[#840178] text-white py-4 px-12 rounded-full hover:bg-purple-400">Get Started</a>
-        </div>
-    </section>
+        </div> --}}
+    {{-- </section> --}}
 
     <section class="text-gray-900 py-8 px-24 bg-white">
         <div class="flex justify-center items-center p-4">
@@ -40,7 +41,7 @@
         <div  class="container m-auto space-y-8 text-gray-500 md:px-12 lg:px-20">
             <div class="justify-center text-center gap-6 md:text-left md:flex lg:items-center  lg:gap-16">
                 <div class="order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
-                    <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-gray-100 font-extrabold mb-5 pt-4">Every review comes with <span class="text-blue-500">a story</span></h1>
+                    <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-gray-100 font-extrabold mb-5 pt-4">Every review comes with <span class="text-[#840178]">a story</span></h1>
                     <p class="text-lg text-white">Be part of millions people around the world to review top brands, businesses and companies. Vookamba is a review platform that’s open to everyone. Share your experiences to help others make better choices and encourage companies to up their game.</p>
                     <div class="flex flex-row-reverse flex-wrap justify-center gap-4 md:gap-6 md:justify-end">
                         <button type="button" title="Start buying" class="w-full py-3 px-6 text-center rounded-xl transition bg-gray-700 shadow-xl hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-600 sm:w-max">
@@ -58,9 +59,9 @@
                 <div style="border-radius: 50px;border-radius: 27px;
                 background: linear-gradient(145deg, #0a0017, #0c001b);
                 box-shadow:  39px 39px 78px #04000a,
-                             -39px -39px 78px #120028;" class="py-16 p-6 md:w-5/12 lg:w-6/12">
+                             -39px -39px 78px #120028;" class="py-16 space-y-8 p-6 md:w-5/12 lg:w-6/12">
                     <h2 class="text-gray-400 font-extrabold xl:text-5xl md:text-3xl text-xl">Our 2022 Transparency Report has landed</h2>
-                    <p class="my-4">We’re looking back on a year unlike any other. Read about how we ensure our platform’s integrity.</p>
+                    <p class="my-8 mt-4 text-lg">We’re looking back on a year unlike any other. Read about how we ensure our platform’s integrity.</p>
                 </div>
             </div>
         </div>

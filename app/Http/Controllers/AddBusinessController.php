@@ -61,7 +61,7 @@ class AddBusinessController extends Controller
                 'category_id' => $data['category_ids'],
                 'sub_category_id' => $data['category_ids'],
                 // 'description' => $name,
-                'status~' => 0,
+                'status' => 0,
                 // 'address' => $data['address'],
                 'email' =>  $data['email'],
                 'phone1' => $data['phone'],
@@ -82,6 +82,7 @@ class AddBusinessController extends Controller
                 'email' => $data['email']
             ]);
         } catch (\Throwable $th) {
+            dd($th);
             return view('payment-summary',[
                 'biz_name' => $data['name'],
                 'biz_email' => $data['email'],
