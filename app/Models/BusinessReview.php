@@ -29,7 +29,13 @@ class BusinessReview extends Model
     ];
 
     public static function total(){
-        return BusinessReview::count();
+        if(auth()->user()->type == 'owner'){
+            return BusinessReview::whereHas('business', function($query){
+                $query->where('user_id', auth()->user()->id);
+            })->count();
+        }else{
+            return BusinessReview::count();
+        }
     }
 
     public static function avarage_rating($id){
@@ -69,5 +75,11 @@ class BusinessReview extends Model
 
     public function business(){
         return $this->belongsTo(Business::class, 'business_id');
+    }
+
+    public function my_business_reviews(){
+        return $this->with('business.owner', function($q){
+            $q->where('user_id', auth()->user()->id);
+        });
     }
 }

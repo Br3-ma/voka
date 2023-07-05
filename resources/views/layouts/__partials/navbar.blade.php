@@ -1,9 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-default top-top-nav">
     <div class="container-fluid">
       <a class="bg-white rounded-circle p-2 navbar-brand fw-bold" href="{{ url('/')}}" style="border-radius: 150px;
-      background: linear-gradient(145deg, #e6e6e6, #ffffff);
-      box-shadow:  50px 50px 100px #fcfcfc,
-                   -50px -50px 100px #ffffff;">
+      background:  #e6e6e6;">
         <img src="{{ asset('public/img/logo.png') }}">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

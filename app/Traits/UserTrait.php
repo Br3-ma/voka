@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 trait UserTrait{
@@ -20,7 +21,7 @@ trait UserTrait{
                     'password' => Hash::make($input['password']),
                     'terms' => 'accepted'
                 ]);
-                // $user->assignRole('user');
+                Auth::login($user);
                 return $user;
         }else{
             return $check;
@@ -40,14 +41,13 @@ trait UserTrait{
                     'password' => Hash::make($input['password']),
                     'terms' => 'accepted'
                 ]);
-                // $user->assignRole('user');
+                Auth::login($user);
                 return $user;
         }else{
             return $check;
         }
         
     }
-
     
 }
 

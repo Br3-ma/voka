@@ -13,9 +13,11 @@
         </div> --}}
     {{-- </section> --}}
 
-    <section class="text-gray-900 py-8 px-24 bg-white">
+    <section class="text-gray-900 py-8 px-24 bg-white border-b border-gray-100">
         <div class="flex justify-center items-center p-4">
-            <p class="text-xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Recent Activities</p>
+            <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-700 dark:text-gray-700">
+                Recent Reviews
+            </p>
         </div>
         <div class="flex space-x-2 mx-auto">
 
@@ -25,9 +27,11 @@
     </section>
 
     
-    <section class="text-gray-900 py-8 mb-8 mx-24 bg-white">
-        <div class="flex justify-center items-center p-4">
-            <p class="text-xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Categories</p>
+    <section class="text-gray-900 py-8 mb-8 mx-24">
+        <div class="flex justify-center items-center pb-6 p-4">
+            <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-800">
+                Explore Categories
+            </p>
         </div>
         <div class="w-full">
 
@@ -44,11 +48,11 @@
                     <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-gray-100 font-extrabold mb-5 pt-4">Every review comes with <span class="text-[#840178]">a story</span></h1>
                     <p class="text-lg text-white">Be part of millions people around the world to review top brands, businesses and companies. Vookamba is a review platform that’s open to everyone. Share your experiences to help others make better choices and encourage companies to up their game.</p>
                     <div class="flex flex-row-reverse flex-wrap justify-center gap-4 md:gap-6 md:justify-end">
-                        <button type="button" title="Start buying" class="w-full py-3 px-6 text-center rounded-xl transition bg-gray-700 shadow-xl hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-600 sm:w-max">
+                        <a href="{{ route('categories') }}" title="Find Busiesses & Companies" class="w-full py-3 px-6 text-center rounded-xl transition bg-gray-700 shadow-xl hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-600 sm:w-max">
                             <span class="block text-white font-semibold">
                                Write a review
                             </span>
-                        </button>
+                        </a>
                         {{-- <button type="button" title="more about" class="w-full order-first py-3 px-6 text-center rounded-xl bg-gray-100 transition hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 sm:w-max">
                             <span class="block text-gray-600 font-semibold">
                                 More about

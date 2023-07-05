@@ -5,7 +5,7 @@
     <div class="box-border max-w-6xl px-4 pb-12 mx-auto border-solid sm:px-6 md:px-6 lg:px-4">
         <div class="flex flex-col items-center leading-7 text-center text-gray-900">
             <h2 class="box-border m-0 text-3xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
-                Pricing Options
+                Choose Package
             </h2>
             <p class="box-border mt-4 text-2xl leading-normal text-gray-900 border-solid">
                 We've got a plan for companies of any size

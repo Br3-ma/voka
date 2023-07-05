@@ -29,6 +29,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="w-full p-4 bg-white mt-2">
+                    <a href="{{ route('dashboard') }}" class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">Continue to Dashboard</a>
+                </div>
             </div>
             <div>
                 <h2 class="text-sm font-medium">Purchase Summary</h2>
@@ -62,7 +65,7 @@
                         <label class="text-xs text-gray-500 ml-2" for="termsConditions">I agree to the terms and conditions.</label>
                     </div>
                     <div class="flex flex-col px-8 pt-4">
-                        <a href="{{ route('login') }}" class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">Start Subscription</a>
+                        <a href="{{ route('dashboard') }}" class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">Start Subscription</a>
                         <button class="text-xs text-blue-500 mt-3 underline">Have a coupon code?</button>
                     </div>
                 </div>

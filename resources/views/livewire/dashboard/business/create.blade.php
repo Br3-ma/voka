@@ -53,7 +53,7 @@
                                     <label class="col-lg-6 col-form-label" for="validationCustom01">Business Category
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <select name="category_id" class="form-control default-select">
+                                    <select name="categories" class="form-control default-select">
                                         <option value="" data-display="Select"> --choose--</option>
                                         @forelse ($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->name }}</option>

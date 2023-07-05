@@ -48,7 +48,13 @@
         </style>
     </head>
     <body class="font-sans antialiased">
-
+            <!-- Preloader HTML -->
+            <div class="preloader">
+                <div class="spinner">
+                    <div class="cube1"></div>
+                    <div class="cube2"></div>
+                </div>
+            </div>
             <!-- Dashboard -->
             @include('layouts.__partials.navbar')
             <div class="d-flex w-full h-lg-full bg-surface-secondary">
@@ -105,6 +111,7 @@
                                         </svg> Reviews
                                     </a>
                                 </li>
+                                @if (auth()->user()->type == 'admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('manage-categories')}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
@@ -127,6 +134,7 @@
                                         </svg> Subscription Plans
                                     </a>
                                 </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('manage-payments') }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
@@ -141,6 +149,7 @@
                                         </svg> Users
                                     </a>
                                 </li>
+                                @endif
                                 {{--
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">

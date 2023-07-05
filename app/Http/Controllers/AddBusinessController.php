@@ -67,8 +67,9 @@ class AddBusinessController extends Controller
                 ]);
             }else{
                 $user = $this->registerOwner($request);
-                // Create business and set status to inactive
+                // authenticate user
                 
+                // Create business and set status to inactive
                 $convertedArray = array_map('intval', $data['categories']);
                 Business::create([
                     // 'cover',

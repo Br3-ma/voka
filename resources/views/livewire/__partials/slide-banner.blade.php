@@ -1,15 +1,3 @@
-<!--
-
-Follow me on
-Instagram: https://www.instagram.com/supahfunk/
-Dribbble: https://dribbble.com/supahfunk
-Twitter: https://twitter.com/supahfunk
-Codepen: https://codepen.io/supah/
-
-© images from istockphoto.com
-
--->
-
 <div class="carousel">
 	<div class="carousel-item">
 		<div class="carousel-box">
@@ -97,16 +85,15 @@ Codepen: https://codepen.io/supah/
 	<div class="box">High-end, full-service<br />visual content creation<br />for lifestyle branding.</div>
 </div>
 
-<a href="https://www.supah.it" target="_blank" class="logo">S</a>
+{{-- <a href="https://www.supah.it" target="_blank" class="logo">S</a> --}}
 <div class="social">
   <a href="https://www.linkedin.com/in/fabio-ottaviani-82b0776/" target="_blank">
-    <svg>
-			<use xlink:href="#ico-linkedin"></use></svg>
+    Write a review
 </a>
-	<a href="https://www.instagram.com/supahfunk/" target="_blank"
+	{{-- <a href="https://www.instagram.com/supahfunk/" target="_blank"
 		>
 			X
-	></a>
+	></a> --}}
 </div>
 
 <svg style="display: none">

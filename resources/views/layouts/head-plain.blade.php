@@ -26,6 +26,9 @@
             });
         </script>
         <style>
+               body{
+                    font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+                }
             /* Styling for the preloader */
             .preloader {
               position: fixed;

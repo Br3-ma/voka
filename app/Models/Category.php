@@ -21,6 +21,11 @@ class Category extends Model
         return $this->belongsToMany(Business::class);
     }
     public static function CatName($id){
-        return Category::where('id', $id)->first()->name;
+        $found = Category::where('id', $id)->exists();
+        if($found){
+            return Category::where('id', $id)->first()->name;
+        }else{
+            return 'Removed';
+        }
     }
 }

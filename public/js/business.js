@@ -27,7 +27,7 @@ $(function() {
                     toastr.options.closeMethod = 'fadeOut';
                     toastr.options.closeDuration = 300;
                     toastr.options.progressBar = true;
-                    // location.reload();
+                    location.reload();
                 }
 
                 if(response.code === 'warning'){
@@ -37,7 +37,7 @@ $(function() {
                     toastr.options.closeMethod = 'fadeOut';
                     toastr.options.closeDuration = 300;
                     toastr.options.progressBar = true;
-                    // location.reload();
+                    location.reload();
                 }
 
                 if(response.code === 'error'){
@@ -47,8 +47,9 @@ $(function() {
                     toastr.options.closeMethod = 'fadeOut';
                     toastr.options.closeDuration = 300;
                     toastr.options.progressBar = true;
-                    // location.reload();
+                    location.reload();
                 }
+                location.reload();
             },
             error: function(xhr, status, error) {
                 // handle errors

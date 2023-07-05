@@ -28,7 +28,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total<br>Reviews</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Reviews</span>
                                             <span class="h3 font-bold mb-0">{{ App\Models\BusinessReview::total()}}</span>
                                         </div>
                                         <div class="col-auto">
@@ -52,7 +52,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Reviewers</span>
-                                            <span class="h3 font-bold mb-0">{{ App\Models\User::total()}}</span>
+                                            <span class="h3 font-bold mb-0">{{ App\Models\User::totalReviewers()}}</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -75,7 +75,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Businesses</span>
-                                            <span class="h3 font-bold mb-0">3</span>
+                                            <span class="h3 font-bold mb-0">{{ App\Models\Business::total()}}</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -98,7 +98,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Subscribers</span>
-                                            <span class="h3 font-bold mb-0">2</span>
+                                            <span class="h3 font-bold mb-0">{{ $top_subscribers->count() }}</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -116,6 +116,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    @if(auth()->user()->type == 'admin')
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
                             <h5 class="mb-0">Top Subscribers</h5>
@@ -169,6 +171,7 @@
                             <button class="text-muted text-sm">View more</button>
                         </div>
                     </div>
+                    @endif
                 </div>
             </main>
         </div>

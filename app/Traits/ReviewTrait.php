@@ -39,8 +39,14 @@ trait ReviewTrait{
     }
 
     public function all_reviews(){
-        return BusinessReview::with('business.owner')
-                                ->with('reviewer')->paginate(10 );
+        if(auth()->user()->type == 'owner'){
+            return BusinessReview::whereHas('business.owner', function ($query) {
+                $query->where('id', auth()->user()->id);
+            })->with('reviewer')->paginate(10 );
+        }else{
+            return BusinessReview::with('business.owner')
+                                    ->with('reviewer')->paginate(10 );
+        }
     }
 
     public function get_all_reviews(){

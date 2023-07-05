@@ -73,9 +73,19 @@ class BusinessController extends Controller
         try {
             $biz = Business::where('id', $request->toArray()['biz_id'])->first();
             $biz->name = $request->toArray()['name'];
-            $biz->category_id = $request->toArray()['category_id'];
+            $biz->categories = $request->toArray()['categories'];
             $biz->user_id = $request->toArray()['user_id'];
             $biz->description = $request->toArray()['description'];
+            $biz->province = $request->toArray()['province'] ?? 'Lusaka';
+            $biz->city = $request->toArray()['city'] ?? 'Lusaka';
+            $biz->address = $request->toArray()['address'];
+            $biz->email = $request->toArray()['email'];
+            $biz->phone1 = $request->toArray()['phone1'];
+            $biz->phone2 = $request->toArray()['phone2'];
+            $biz->start_time = $request->toArray()['start_time'];   
+            $biz->stop_time = $request->toArray()['stop_time'];
+            $biz->website = $request->toArray()['website'];
+            $biz->map = $request->toArray()['map'];
             $biz->save();
 
             if ($request->file('image_path')) {

@@ -61,8 +61,14 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public static function total(){
-        return User::count();
+    public static function totalReviewers(){
+        if(auth()->user()->type == 'owner'){
+            return User::whereHas('reviews.business', function($query){
+                $query->where('user_id', auth()->user()->id);
+            })->count();
+        }else{
+            return User::count();
+        }
     }
 
 

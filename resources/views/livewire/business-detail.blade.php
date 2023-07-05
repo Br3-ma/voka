@@ -19,10 +19,10 @@
             {{-- End Average Rating  --}}
             <div class="flex items-center space-x-2 my-2">
                 <div class="rounded-lg bg-gray-100 flex px-2">
-                    <span class="font-bold text-indigo-600 text-sm">Food</span>
+                    <span class="font-bold text-indigo-600 text-sm"></span>
                 </div>
                 <div class="rounded-lg bg-gray-100 flex px-2">
-                    <span class="font-bold text-indigo-600 text-sm">Restuarant</span>
+                    <span class="font-bold text-indigo-600 text-sm">{{ App\Models\Category::CatName($biz->categories) ?? ''}}</span>
                 </div>
             </div>	
             <div class="flex items-center space-x-2 my-2">
@@ -42,16 +42,16 @@
                             <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z"/>
                           </svg>
                     </span>
-                    <span class="font-bold text-red-600 text-sm">Opens 08:00 AM </span>
+                    <span class="font-bold text-red-600 text-sm">Opens {{ $biz->start_time ?? '08:00 AM' }} </span>
                 </div>
-                <div class="flex space-x-2">
+                {{-- <div class="flex space-x-2">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-straw text-red" viewBox="0 0 16 16">
                             <path d="M13.902.334a.5.5 0 0 1-.28.65l-2.254.902-.4 1.927c.376.095.715.215.972.367.228.135.56.396.56.82 0 .046-.004.09-.011.132l-.962 9.068a1.28 1.28 0 0 1-.524.93c-.488.34-1.494.87-3.01.87-1.516 0-2.522-.53-3.01-.87a1.28 1.28 0 0 1-.524-.93L3.51 5.132A.78.78 0 0 1 3.5 5c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 3.614 6.867 3.5 8 3.5c.712 0 1.389.045 1.985.127l.464-2.215a.5.5 0 0 1 .303-.356l2.5-1a.5.5 0 0 1 .65.278zM9.768 4.607A13.991 13.991 0 0 0 8 4.5c-1.076 0-2.033.11-2.707.278A3.284 3.284 0 0 0 4.645 5c.146.073.362.15.648.222C5.967 5.39 6.924 5.5 8 5.5c.571 0 1.109-.03 1.588-.085l.18-.808zm.292 1.756C9.445 6.45 8.742 6.5 8 6.5c-1.133 0-2.176-.114-2.95-.308a5.514 5.514 0 0 1-.435-.127l.838 8.03c.013.121.06.186.102.215.357.249 1.168.69 2.438.69 1.27 0 2.081-.441 2.438-.69.042-.029.09-.094.102-.215l.852-8.03a5.517 5.517 0 0 1-.435.127 8.88 8.88 0 0 1-.89.17zM4.467 4.884s.003.002.005.006l-.005-.006zm7.066 0-.005.006c.002-.004.005-.006.005-.006zM11.354 5a3.174 3.174 0 0 0-.604-.21l-.099.445.055-.013c.286-.072.502-.149.648-.222z"/>
                           </svg>
                     </span>
                     <span class="font-bold text-red-600 text-sm">Beer & Drinks</span>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -65,7 +65,7 @@
                         </svg>                        
                         <span class="text-white">Write a Review</span>
                     </a>
-                    <button type="button" class="space-x-2 inline-flex text-red-700 hover:text-white border border-red-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-500 dark:text-gray-800 dark:hover:text-gray-400 dark:hover:bg-gray-200 dark:focus:ring-gray-400">
+                    {{-- <button type="button" class="space-x-2 inline-flex text-red-700 hover:text-white border border-red-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-500 dark:text-gray-800 dark:hover:text-gray-400 dark:hover:bg-gray-200 dark:focus:ring-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 w-4 bi bi-camera2" viewBox="0 0 16 16">
                             <path d="M5 8c0-1.657 2.343-3 4-3V4a4 4 0 0 0-4 4z"/>
                             <path d="M12.318 3h2.015C15.253 3 16 3.746 16 4.667v6.666c0 .92-.746 1.667-1.667 1.667h-2.015A5.97 5.97 0 0 1 9 14a5.972 5.972 0 0 1-3.318-1H1.667C.747 13 0 12.254 0 11.333V4.667C0 3.747.746 3 1.667 3H2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h.682A5.97 5.97 0 0 1 9 2c1.227 0 2.367.368 3.318 1zM2 4.5a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0zM14 8A5 5 0 1 0 4 8a5 5 0 0 0 10 0z"/>
@@ -83,14 +83,14 @@
                             <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
                         </svg>                        
                         <span>Save</span>
-                    </button>
+                    </button> --}}
                 </div>
                 
                 <div class="w-full">
                     <div class="py-8 px-4 border-b border-gray-300">
                         <h2 class="font-extrabold py-2">Photos & Video</h2>
                         <div class="flex">
-							<div class="px-2">
+							{{-- <div class="px-2">
 								<img width="200" class="rounded-lg bg-gray-100" src="https://jabulanimall.co.za/wp-content/uploads/2021/01/IMG_20201229_100751-1200x900.jpg">
 							</div>
 							<div class="px-2">
@@ -98,7 +98,7 @@
 							</div>
 							<div class="px-2">
 								<img width="200" class="rounded-lg bg-gray-100" src="https://jabulanimall.co.za/wp-content/uploads/2021/01/IMG_20201229_100751-1200x900.jpg">
-							</div>
+							</div> --}}
 							{{-- <div class="px-2">
 								<img width="200" class="rounded-lg bg-gray-100" src="https://jabulanimall.co.za/wp-content/uploads/2021/01/IMG_20201229_100751-1200x900.jpg">
 							</div> --}}
@@ -109,7 +109,10 @@
                         <h2 class="font-extrabold py-2">Location & Hours</h2>
                         <div class="flex">
                             <div class="w-1/2">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51754.35188643321!2d28.317123114237695!3d-15.394606939190867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0dc9c48415%3A0xa09b8a404f8b4101!2sMunali%20Mall!5e0!3m2!1sen!2szm!4v1685403318481!5m2!1sen!2szm" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <?php echo $biz->map; ?>
+                                @if ($biz->map == null)
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkqlghbcNkltzRmBh8eq7iCn0ahIoi1upT-g&usqp=CAU"/>
+                                @endif
                             </div>
                             <div class="w-1/2">
                                 <p>Mon 8:30 AM - 5:00 PM</p>
@@ -200,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                    @if (!empty($review->toArray()))
+                    @if ($review !== null)
                     <div class="py-8 px-4 border-b border-gray-300">
                         <div class="w-full flex-col p-2 h-auto border border-1 mt-2 rounded-md border-gray-100 hover:shadow-lg hover:transition ease-in-out duration-400 hover:mt-2">
                             <div class="md:flex-row justify-between w-full">
@@ -245,12 +248,15 @@
                     <div class="w-full mb-6 p-2 border border-gray-300">
                         <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent bg-gradient-to-r from-transparent to-transparent hover:from-slate-100 transition ease-linear duration-150">
                             <div class="inline-flex items-center space-x-2">
-                                <div>www.{{ $biz->name }}.com </div>
+                                <div>
+                                    <a target="_blank" href="<?php echo $biz->website; ?>">{{ $biz->website }}</a>
+                                </div>
                             </div>
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-slate-500 hover:text-slate-700 hover:cursor-pointer">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                </svg>                      
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                  </svg>                  
                             </div>
                         </div>
 
@@ -262,9 +268,9 @@
                                 </div>
                             </div>
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-slate-500 hover:text-slate-700 hover:cursor-pointer">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                </svg>                      
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                                  </svg>                    
                             </div>
                         </div>
                     </div>

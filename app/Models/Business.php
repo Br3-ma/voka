@@ -17,21 +17,42 @@ class Business extends Model
         'sub_category_id',
         'description',
         'status',
+        'province',
+        'city',
         'address',
         'email',
         'phone1',
         'phone2',
         'country',
         'sector',
-        'categories'
+        'categories',
+        'start_time',   
+        'stop_time',
+        'days',
+        'website',
+        'ios',
+        'apk',
+        'map',
+        'is_certified'
     ];
     protected $casts = [
         'categories' => 'array'
     ];
 
+    public static function total(){
+        if(auth()->user()->type == 'owner'){
+            return Business::where('user_id', auth()->user()->id)->count();
+        }else{
+            return Business::count();
+        }
+    }
     
     public function owner(){
         return $this->belongsTo(User::class, 'user_id');
+    }    
+
+    public function mine(){
+        return $this->belongsTo(User::class, 'user_id')->where('user_id', auth()->user()->id);
     }
 
     public function categories(){

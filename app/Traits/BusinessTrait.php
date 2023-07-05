@@ -12,7 +12,15 @@ use Livewire\WithPagination;
 trait BusinessTrait{
     use WithPagination;
     public function get_all_businesses(){
-        return Business::paginate(10);
+        if(auth()->user()){
+            if (auth()->user()->type == 'owner') {
+                return Business::where('user_id', auth()->user()->id)->paginate(10);        
+            }else{
+                return Business::paginate(10);
+            }
+        }else{
+            return Business::paginate(10);
+        }
     }
     public function get_subscribed_businesses(){
         // make status 1
