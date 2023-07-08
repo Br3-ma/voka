@@ -68,7 +68,7 @@ return [
     |
     */
 
-    'app_url' =>  env('APP_URL', 'http://localhost/voka'),
+    'app_url' =>  env('APP_URL', 'http://localhost:90/voka'),
 
     /*
     |--------------------------------------------------------------------------

@@ -29,6 +29,17 @@ class User extends Authenticatable
         'type',
         'email',
         'password',
+        'about',
+        'address',
+        'ilove',
+        'nickname',
+        'country',
+        'gender',
+        'dob',
+        'badge_level',
+        'badge_icon',
+        'pic',
+        'cover_pic'
     ];
 
     /**

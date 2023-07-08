@@ -20,6 +20,10 @@ use App\Http\Livewire\Dashboard\ManageTagView;
 use App\Http\Livewire\Dashboard\Subscription\Create as SubscriptionCreate;
 use App\Http\Livewire\Dashboard\Tags\Create as TagsCreate;
 use App\Http\Livewire\Packages;
+use App\Http\Livewire\Users\ChangePassword;
+use App\Http\Livewire\Users\EditProfile;
+use App\Http\Livewire\Users\MyCollection;
+use App\Http\Livewire\Users\MyProfile;
 use App\Http\Livewire\WriteReview;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +56,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/write-a-review/{id}', WriteReview::class)->name('write-review');
     
     Route::get('/manage-reviews', ManageReviewsView::class)->name('manage-reviews');
+
+    Route::get('/my-profile', MyProfile::class)->name('my-profile');
+    Route::get('/my-collection', MyCollection::class)->name('my-collection');
+    Route::get('/profile/change-password', ChangePassword::class)->name('change-pass');
+    Route::get('/profile/edit-info', EditProfile::class)->name('edit-info');
     
     
     Route::get('/manage-categories', ManageCategoryView::class)->name('manage-categories');

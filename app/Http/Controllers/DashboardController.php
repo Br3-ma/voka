@@ -10,6 +10,9 @@ class DashboardController extends Controller
     use SubscriptionTrait;
 
     public function index(){
+        if(auth()->user()->type == 'user' || auth()->user()->type == null){
+            return redirect()->route('welcome');
+        }
         $top_subscribers = $this->get_top5_subscribers();    
         return view('dashboard',[
             'top_subscribers' => $top_subscribers

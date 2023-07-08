@@ -33,11 +33,13 @@ trait ReviewTrait{
         return $average;
     }
 
+    //Get a Review
     public function get_review($id){
         return BusinessReview::where('id', $id)->with('business.owner')
                                 ->with('reviewer')->first();
     }
 
+    //Get All Reviews | Paginated
     public function all_reviews(){
         if(auth()->user()->type == 'owner'){
             return BusinessReview::whereHas('business.owner', function ($query) {
@@ -49,12 +51,17 @@ trait ReviewTrait{
         }
     }
 
+    //Get All Reviews 
     public function get_all_reviews(){
         $reviews = BusinessReview::with('business')->latest()->get();
         // $reviews = Cache::remember('reviews_list', 60 * 60, function(){
         //     return BusinessReview::with('business')->get();
         // });
         return $reviews; 
+    }
+
+    public function my_reviews(){
+        return User::with('reviews')->where('id', auth()->user()->id)->first();
     }
 
     public function get_bad_reviews(){
