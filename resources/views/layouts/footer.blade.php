@@ -90,6 +90,11 @@
           }
         });
 
+        $('.prof-dropdown > a').click(function(e) {
+            e.preventDefault();
+            $(this).siblings('.dropdown-content').slideToggle();
+        });
+
       });
       /*--------------------
       Vars

@@ -1,6 +1,5 @@
 @php
     $currentRouteName = \Route::currentRouteName();
-
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -21,7 +20,18 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('public/assets/css/voo.css') }}">
         <script src="https://cdn.tailwindcss.com"></script>
-              
+        <style>
+            li {
+                list-style:none;
+	            font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+            }
+            .dropdown-content {
+	            font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+                display: none;
+                position: absolute;
+                z-index: 9999; /* Set a higher z-index value */
+            }
+        </style>
         <script>
             // Hide the preloader when the page finishes loading
             window.addEventListener('load', function() {
@@ -78,13 +88,41 @@
                         @if (Route::has('login'))
                             @auth
                             <div class="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:bg-gray-100">
-                                <a href="{{ url('/user/profile')}}" class="relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                    </svg>
-                                    {{-- <span class="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">3</span> --}}
-                                </a>
+                                
+                                <li class="prof-dropdown">
+                                    <a href="{{ url('/user/profile')}}" class="relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
+                                        {{-- <span class="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">3</span> --}}
+                                    </a>
+                                    <div class="dropdown-content top-16 right-14 left-auto shadow-lg border border-gray-300">
+                                        <div class="bg-white text-black p-4">
+                                            <ul class="block space-y-4">
+                                                @auth
+                                                    @if (auth()->user()->type == 'owner')
+                                                    <li><a href="{{ route('dashboard') }}" class="text-black text-sm hover:text-gray-300">Dashboard</a></li>
+                                                    @else                                                
+                                                    <li><a href="{{ route('my-profile') }}" class="text-black text-sm hover:text-gray-300">About Me</a></li>
+                                                    <li><a href="{{ route('my-collection') }}" class="text-black text-sm hover:text-gray-300">My Collection</a></li>
+                                                    @endif
+                                                @endauth
+                                                <hr>
+                                                <li>
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        {{-- <i class="bi bi-box-arrow-left"></i> --}}
+                                                        <button type="submit" class="text-black text-sm text-center justify-content-between flex hover:text-gray-300 ai-icon">
+                                                            {{-- <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> --}}
+                                                            <span class="ms-2">Logout </span>
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        <div>
+                                    </div>
+                                </li>
                             </div>                             
                             @else
                                 <a href="{{ route('login') }}" class="ml-2 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100">
