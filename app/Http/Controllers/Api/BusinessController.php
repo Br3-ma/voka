@@ -87,7 +87,8 @@ class BusinessController extends Controller
             $biz->website = $request->toArray()['website'];
             $biz->map = $request->toArray()['map'];
             $biz->save();
-
+ 
+            
             if ($request->file('image_path')) {
                 $cover_image = Storage::put('business', $request->file('image_path'));
             }

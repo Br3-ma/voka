@@ -1,0 +1,13 @@
+  /* Media query to hide the element on screens 768px and below */
+  @media (max-width: 768px) {
+    .mobile-hide {
+      display: none;
+    }
+  }
+
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }

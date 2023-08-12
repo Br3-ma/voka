@@ -25,53 +25,41 @@ class CategoriesController extends Controller
             $selectedCategories = $request->input('category', []);
             
             // Retrieve tag selected
-            // dd($selectedCategories);
+            dd($selectedCategories);
 
             // Retrieve the Businesses and filter the results based on the selected checkboxes
             if(is_array($selectedCategories) && !empty($selectedCategories)){
                 
                 $query = '';
-                $search = array_map('intval', $selectedCategories);
-
-                if (!empty($search)) {
-                    $biz = Business::whereHas('bizcategories', function ($query) use ($search) {
-                        $query->whereIn('categories_id', $search);
-                    })->get();
-                }else{
-                    $biz = [];
-                }
+                $convertedArray = array_map('intval', $selectedCategories);
+                // dd($convertedArray);
+                $biz = Business::whereIn('categories', $convertedArray)->get();
 
             }elseif($selectedCategories !== null){
+                // dd('string');
                 $query = $selectedCategories;
                 $search = [];
                 $results = Category::where('name', 'LIKE', '%' . $selectedCategories . '%')
                 ->orWhere('desc', 'LIKE', '%' . $selectedCategories . '%')
                 ->get();
-                // dd($results);
+                dd($results);
                 foreach ($results as $item) {
                     $search[] = $item->id; // Push each value to the array
                 }
-                // dd($search);
-                
+                $convertedArray = array_map('intval', $search);
+                $biz = Business::whereIn('categories', $convertedArray)->get();
                 $selectedCategories = $search;
-                if (!empty($search)) {
-                    $biz = Business::whereHas('bizcategories', function ($query) use ($search) {
-                        $query->where('categories_id', $search[0]);
-                    })->get();
-                }else{
-                    $biz = [];
-                }
-                
             }else{
                 $query = '';
-                $biz = $this->all_businesses();
+                $biz = $this->get_all_businesses();
             }
         }else{
             $query = '';
-            $biz = $this->all_businesses();
+            $biz = $this->get_all_businesses();
             $selectedCategories = [];
         }
-        
+
+        // dd($selectedCategories);
         return view('livewire.categories', [
             'biz' => $biz,
             'categories' => $categories,
@@ -93,22 +81,14 @@ class CategoriesController extends Controller
         foreach ($results as $item) {
             $search[] = $item->id; // Push each value to the array
         }
-        // $convertedArray = array_map('intval', $search);
-        
-        if (!empty($search)) {
-            $biz = Business::whereHas('bizcategories', function ($query) use ($search) {
-                $query->whereIn('categories_id', $search);
-            })
+        $convertedArray = array_map('intval', $search);
+        $biz = Business::query()
             ->orWhere('name', 'LIKE', '%'.$query.'%')
             ->orWhere('name', 'LIKE', $query.'%')
             ->orWhere('name', 'LIKE', '%'.$query)
-            ->orWhere('description', 'LIKE', '%'.$query.'%')->get();
-        }else{
-            $biz = Business::orWhere('name', 'LIKE', '%'.$query.'%')
-            ->orWhere('name', 'LIKE', $query.'%')
-            ->orWhere('name', 'LIKE', '%'.$query)
-            ->orWhere('description', 'LIKE', '%'.$query.'%')->get();
-        }
+            ->orWhere('description', 'LIKE', '%'.$query.'%')
+            ->orWhereIn('categories', $convertedArray)->get();
+
         return view('livewire.categories', [
             'biz' => $biz,
             'categories' => $categories,

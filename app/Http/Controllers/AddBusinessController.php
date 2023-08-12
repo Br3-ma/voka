@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BizCategory;
 use App\Models\Business;
 use App\Models\Category;
 use App\Traits\BusinessTrait;
 use App\Traits\SubscriptionTrait;
 use App\Traits\UserTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Notifications\WelcomeNewUser;
+use Illuminate\Support\Facades\Notification;
 
 class AddBusinessController extends Controller
 {
@@ -49,13 +54,14 @@ class AddBusinessController extends Controller
      */
     public function store(Request $request)
     {
+        
         try {
+            DB::beginTransaction();
             $data = $request->toArray();
                 
             if(auth()->user()){
                 // Create business and set status to inactive
-                $convertedArray = array_map('intval', $data['categories']);
-                Business::create([
+                $b = Business::create([
                     'name' => $data['name'],
                     'user_id' => auth()->user()->id,
                     'category_id' => $data['category_ids'],
@@ -65,13 +71,22 @@ class AddBusinessController extends Controller
                     'phone1' => $data['phone'],
                     'categories' => json_encode($data['categories'])
                 ]);
+                if ($request->file('image_path')) {
+                    $cover_image = Storage::put('business', $request->file('image_path'));
+                    $b->cover = isset($cover_image) ? $cover_image : '';
+                    $b->save();
+                }
+                foreach ($data['categories'] as $key => $value) {
+                    BizCategory::create([
+                        'businesses_id' => $b->id,
+                        'categories_id' => $value
+                    ]);
+                }
             }else{
-                $user = $this->registerOwner($request);
                 // authenticate user
-                
+                $user = $this->registerOwner($request);
                 // Create business and set status to inactive
-                $convertedArray = array_map('intval', $data['categories']);
-                Business::create([
+                $b = Business::create([
                     // 'cover',
                     'name' => $data['name'],
                     'user_id' => $user->id,
@@ -87,8 +102,30 @@ class AddBusinessController extends Controller
                     // 'sector' => $name,
                     'categories' => json_encode($data['categories']) 
                 ]);
-            }
 
+                if ($request->file('image_path')) {
+                    $cover_image = Storage::put('business', $request->file('image_path'));
+                    $b->cover = isset($cover_image) ? $cover_image : '';
+                    $b->save();
+                }
+
+                foreach ($data['categories'] as $value) {
+                    BizCategory::create([
+                        'businesses_id' => $b->id,
+                        'categories_id' => $value
+                    ]);
+                }
+            }
+            DB::commit();
+            // Send an email
+
+            // Send the welcome notification
+              
+            if(auth()->user()){
+                Notification::send(auth()->user(), new WelcomeNewUser());
+            }else{
+                Notification::send($user, new WelcomeNewUser());
+            }
             return view('payment-summary',[
                 'biz_name' => $data['name'],
                 'biz_email' => $data['email'],
@@ -101,6 +138,7 @@ class AddBusinessController extends Controller
                 'state' => 'ok'
             ]);
         } catch (\Throwable $th) {
+            DB::rollback();
             dd($th);
             $categories = Category::get();
             return view('add-business',[

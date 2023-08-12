@@ -53,14 +53,17 @@
                                     <label class="col-lg-6 col-form-label" for="validationCustom01">Business Category
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <select name="categories" class="form-control default-select">
-                                        <option value="" data-display="Select"> --choose--</option>
-                                        @forelse ($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                        @empty
-                                            
-                                        @endforelse
-                                    </select>
+                                    @forelse ($categories as $cat)
+                                        <label class="PillList-item">
+                                            <input type="checkbox" id="cate{{$cat->id}}" name="categories[]" value="{{ $cat->id }}">
+                                            <span class="PillList-label">{{ $cat->name }}
+                                            <span class="Icon Icon--checkLight Icon--smallest"><i class="fa fa-check"></i></span>
+                                        
+                                            </span>
+                                        </label>
+                                    @empty
+                                        <small>No categories found</small>
+                                    @endforelse
                                 </div>
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" />
                             </div>

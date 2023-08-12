@@ -10,7 +10,7 @@
             </div>
     
             <!-- Content -->
-            <form method="POST" action="{{ route('biz-store')}}" class="w-full">
+            <form method="POST" action="{{ route('biz-store')}}" class="w-full" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="user_id" value="" />
                 <input type="hidden" name="amount" value="{{ $amount }}" />
@@ -100,24 +100,12 @@
                         <div class="border-t border-gray-200 rounded p-8">
                             <p class="py-4 text-xs">Select categories matching your business/company:</p>
                             @forelse ($categories as $cat)
-                                {{-- <span style="pointer:cursor" onclick="catID('{{$cat->id}}')" id="badge-dismiss-yellow" class="pointer inline-flex hover:bg-yellow-100 hover:text-dark items-center px-2 py-2 mr-2 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
-                                    {{$cat->name}}
-                                    <button type="button" class="inline-flex items-center p-0.5 ml-2 text-sm text-yellow-400 bg-transparent rounded-full hover:bg-yellow-200 hover:text-yellow-900 dark:hover:bg-yellow-800 dark:hover:text-yellow-300" data-dismiss-target="#badge-dismiss-yellow" aria-label="Remove">
-                                        <svg aria-hidden="true" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                        <span class="sr-only">Remove badge</span>
-                                    </button>
-                                </span> --}}
-{{--                                 <div>
-                                    <div class="inline-flex items-center px-3 py-1 bg-blue-500 text-white rounded-lg">
-                                        <input type="checkbox" id="cate{{$cat->id}}" name="categories[]" value="{{ $cat->id }}" class="form-checkbox h-4 w-4 text-blue-600">
-                                        <label class="ml-2" for="cate{{$cat->id}}">{{ $cat->name }}</label>
-                                    </div>
-                                </div> --}}
                                 <label class="PillList-item">
                                     <input type="checkbox" id="cate{{$cat->id}}" name="categories[]" value="{{ $cat->id }}">
-                                    <span class="PillList-label">{{ $cat->name }}
-                                    <span class="Icon Icon--checkLight Icon--smallest"><i class="fa fa-check"></i></span>
-                                
+                                    <span class="PillList-label">
+                                        {{ $cat->name }}
+                                        <span class="Icon Icon--checkLight Icon--smallest">
+                                        </span><i class="fa fa-check"></i></span>
                                     </span>
                                 </label>
                             @empty
@@ -145,26 +133,64 @@
                         You will be using this information to help you login to your Vokamba business dashboard.
                     </p>
                     <div class="mt-2">
-                        <div class="flex">
+                        <div class="flex gap-2">
                             <div class="w-1/2">
                                 <label class="block text-gray-700">First Name</label>
-                                <input type="text" name="fname" id="" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
+                                <input type="text" name="fname" id="fname" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
                             </div>
                             <div class="w-1/2">
                                 <label class="block text-gray-700">Last Name</label>
-                                <input type="text" name="lname" id="" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
+                                <input type="text" name="lname" id="lname" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
                             </div>
                         </div>
                         <label class="block text-gray-700">New Username</label>
-                        <input type="text" name="username" id="" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
+                        <input type="text" name="username" id="email" placeholder="Use your email" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
                         
                         <label class="block text-gray-700">New Password</label>
-                        <input type="text" name="password" id="" placeholder="New Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
+                        <input type="text" name="password" id="password" placeholder="New Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
                         
                         <label class="block text-gray-700">Confirm Password</label>
-                        <input type="text" name="confirmed_password" id="" placeholder="Re-type Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
-                        <button type="submit" class="text-white mt-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                        <input type="text" name="confirmed_password" id="c_password" placeholder="Re-type Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" >
+                        <button type="button" class="goto6 text-white mt-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                             Continue
+                        </button>
+                    </div>
+                </div>
+                <div id="mystep6" class="box-border order-first w-full text-black border-solid md:w-3/4 md:pl-10 md:order-none">
+                    <div style="cursor:pointer" class="goto5 flex space-x-2 items-center content-center hover:bg-gradient-to-bl focus:ring-4">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+                        </span>
+                        <span>Back to Step 5</span>
+                    </div>
+                    <h2 class="m-0 text-xl font-extrabold leading-tight border-0 border-gray-300 lg:text-3xl md:text-2xl">
+                        A picture showing your business / company
+                    </h2>
+                    <p class="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-12 xl:pr-32 lg:text-sm">
+                        Upload a Cover Picture.
+                    </p>
+                    <div class="mt-2">
+                        <div class="w-full bg-white p-2 rounded">
+                            <div id="upload-form" class="space-y-4">
+                              <div class="relative p-2 w-full">
+                                <input type="file" id="image-input" name="image_path" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*">
+                                <div class="flex items-center justify-center space-x-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-image text-gray-400 h-8 w-8" viewBox="0 0 16 16">
+                                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                                      </svg>
+                                  <span class="text-sm font-medium text-gray-700">Choose a Picture</span>
+                                </div>
+                              </div>
+                              <div id="image-preview" class="hidden mt-4">
+                                <img id="preview-img" name="image_photo" class="max-w-full h-auto rounded shadow-md" alt="Image Preview">
+                              </div>
+                            </div>
+                          </div>
+                        <button type="submit" class="text-white mt-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                            Done & Dusted
                         </button>
                     </div>
                 </div>
@@ -183,6 +209,7 @@
         $("#mystep3").hide();
         $("#mystep4").hide();
         $("#mystep5").hide();
+        $("#mystep6").hide();
       
         if(state === 'error'){
             toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
@@ -198,6 +225,7 @@
             $("#mystep3").hide();
             $("#mystep4").hide();
             $("#mystep5").hide();
+            $("#mystep6").hide();
         });
 
         $(".goto2").click(() => {
@@ -214,6 +242,7 @@
                 $("#mystep3").hide();
                 $("#mystep4").hide();
                 $("#mystep5").hide();
+                $("#mystep6").hide();
             }
         });
 
@@ -230,6 +259,7 @@
                 $("#mystep3").show();
                 $("#mystep4").hide();
                 $("#mystep5").hide();
+                $("#mystep6").hide();
             }
         });
 
@@ -246,23 +276,75 @@
                 $("#mystep3").hide();
                 $("#mystep4").show();
                 $("#mystep5").hide(); 
+                $("#mystep6").hide();
             }
         });
 
         $(".goto5").click(() => {
-            $("#mystep1").hide();
-            $("#mystep2").hide();
-            $("#mystep3").hide();
-            $("#mystep4").hide();
-            $("#mystep5").show();
+            // var inputField = document.getElementById("cats");
+            // if (inputField.value === '') {
+            //     inputField.classList.add("shake");
+            //     setTimeout(function() {
+            //         inputField.classList.remove("shake");
+            //     }, 500);
+            // } else {
+                $("#mystep1").hide();
+                $("#mystep2").hide();
+                $("#mystep3").hide();
+                $("#mystep4").hide();
+                $("#mystep5").show();
+                $("#mystep6").hide();
+            // }
         });
 
-    function catID(id){
-        const input = document.getElementById('myInput');
-        let myArray = [];
-        myArray.push(id);
+        $(".goto6").click(() => {
+            var inputField = document.getElementById("fname");
+            var inputField2 = document.getElementById("lname");
+            var inputField3 = document.getElementById("email");
+            var inputField4 = document.getElementById("password");
+            var inputField5 = document.getElementById("c_password");
+            if (inputField.value === '' && inputField2.value === '' && inputField3.value === '' && inputField4.value === '' && inputField5.value === '') {
+                inputField.classList.add("shake");
+                setTimeout(function() {
+                    inputField.classList.remove("shake");
+                }, 500);
+            } else {
+                $("#mystep1").hide();
+                $("#mystep2").hide();
+                $("#mystep3").hide();
+                $("#mystep4").hide();
+                $("#mystep5").hide();
+                $("#mystep6").show();
+            }
+        });
 
-        
-        input.value = myArray.join(', '); 
-    }
+        // Uploading Image
+        const imageInput = document.getElementById('image-input');
+        const imagePreview = document.getElementById('image-preview');
+        const previewImg = document.getElementById('preview-img');
+        const uploadForm = document.getElementById('upload-form');
+
+        imageInput.addEventListener('change', () => {
+            const file = imageInput.files[0];
+            if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                previewImg.src = reader.result;
+                imagePreview.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+            } else {
+            imagePreview.classList.add('hidden');
+            previewImg.src = '';
+            }
+        });
+
+        function catID(id){
+            const input = document.getElementById('myInput');
+            let myArray = [];
+            myArray.push(id);
+
+            
+            input.value = myArray.join(', '); 
+        }
 </script>

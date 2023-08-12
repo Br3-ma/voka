@@ -58,6 +58,9 @@ class Business extends Model
     public function categories(){
         return $this->hasMany(Category::class);
     }
+    public function bizcategories(){
+        return $this->hasMany(BizCategory::class, 'businesses_id');
+    }
 
     public function review(){
         return $this->hasMany(BusinessReview::class);

@@ -55,10 +55,10 @@
             </div>
         </div>
     </section>
-    <section class="mx-auto mb-8 px-20 py-4">
-        <div class="flex">
-            <div class="flex-initial w-3/4">
-                <div class="flex px-4">
+    <section class="mx-auto mb-8 sm:px-20 py-4">
+        <div class="sm:flex">
+            <div class="flex-initial sm:w-3/4">
+                <div class="flex sm:px-4">
                     <a target="_blank" href="{{ route('write-review', $biz->id) }}" type="button" class="space-x-2 bg-[#840178] text-white inline-flex  border border-[#840178] hover:bg-[#840178] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-200 dark:text-blue-200 dark:hover:text-white dark:hover:bg-[#840178] dark:focus:ring-red-200">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 w-4 bi bi-star text-white" viewBox="0 0 16 16">
                             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
@@ -228,13 +228,13 @@
                             </div>
                         </div>
                     </div>
-                    @endif)
+                    @endif
                 </div>
             </div>
 
 
 
-            <div class="flex-initial px-4 w-1/4">
+            <div class="flex-initial sm:px-4 sm:w-1/4">
                 <div class="w-full sticky top-2">
                     <div class="w-full mb-6 p-2 border border-gray-300">
                         <h2 class="font-extrabold text-2xl py-2">Request Information</h2>
