@@ -21,9 +21,10 @@ trait SubscriptionTrait{
     }
 
     public function get_all_subs(){
-        return Cache::remember('sub_list', 60 * 60, function(){
-            return SubscriptionPackage::with('feature')->paginate(10);
-        });
+        // return Cache::remember('sub_list', 60 * 60, function(){
+        //     return SubscriptionPackage::with('feature')->paginate(10);
+        // });
+        return SubscriptionPackage::with('feature')->paginate(10);
     }
 
     //***************** CREATE ******
