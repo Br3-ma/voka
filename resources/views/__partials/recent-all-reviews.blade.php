@@ -22,7 +22,7 @@
             width: 100%;
             height: 20vh;
             border-radius: 10px;
-            background-image: url('{{ asset("public/storage/".$review->business->cover) }}');">
+            background-image: url('{{ asset("storage/app/".$review->business->cover) }}');">
         </div>
         {{-- @else
         <div class="mt-1" style="
