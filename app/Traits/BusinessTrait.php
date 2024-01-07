@@ -33,7 +33,6 @@ trait BusinessTrait{
     
     public function getBusiness($id){
         return Business::with('owner')->where('id', $id)->first();
-        // return Business::with('categories')->where('id', $id)->first();
     }
 
     //***************** CREATE ******

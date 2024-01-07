@@ -1,6 +1,5 @@
 <div class="bg-white">
     @include('layouts.head')
-    @dd($biz)
     <section class="w-full bg-cover bg-center mt-0 @if ($biz->cover !== null)  py-32 @else py-8  @endif" style="background-image: url('{{ asset("storage/app/".$biz->cover) }}');">
         <div class="text-white px-4">
             <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl @if ($biz->cover !== null) text-white  @else text-black  @endif font-extrabold mb-6">
