@@ -13,11 +13,11 @@ class BusinessDetail extends Component
     public function mount($id){
         $this->av_rating = $this->avg_rating($id);
         $this->biz = $this->getBusiness($id);
-        Artisan::call('optimize:clear');
+        dd($this->biz);
     }
     public function render()
     {
-        
+        Artisan::call('optimize:clear');
         return view('livewire.business-detail');
     }
 }

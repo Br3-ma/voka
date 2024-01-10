@@ -192,6 +192,6 @@
       document.addEventListener('touchend', handleMouseUp)
 
 
-      $(".category").chosen({disable_search_threshold: 10});
+      // $(".category").chosen({disable_search_threshold: 10});
     </script>
 </html>

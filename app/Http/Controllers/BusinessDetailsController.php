@@ -15,17 +15,26 @@ class BusinessDetailsController extends Controller
      */
     public function index($id, $rev = null)
     {
-        $user_review = Cache::remember('review_detail', 60 * 60, function() use ($rev){
-            return $this->get_review($rev);
-        });
-        $biz = Cache::remember('biz_info', 60 * 60, function() use ($id){
-            return $this->getBusiness($id);
-        });
+        $user_review = $this->get_review($rev);
+        $biz = $this->getBusiness($id);
         return view('livewire.business-detail',[
             'biz' => $biz,
             'review' => $user_review
         ]);
     }
+    // public function index($id, $rev = null)
+    // {
+    //     $user_review = Cache::remember('review_detail', 60 * 60, function() use ($rev){
+    //         return $this->get_review($rev);
+    //     });
+    //     $biz = Cache::remember('biz_info', 60 * 60, function() use ($id){
+    //         return $this->getBusiness($id);
+    //     });
+    //     return view('livewire.business-detail',[
+    //         'biz' => $biz,
+    //         'review' => $user_review
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.

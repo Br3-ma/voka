@@ -14,15 +14,9 @@ trait ReviewTrait{
     //***************** READ ******
     public function avg_rating($biz_id){
         // Calculate the sum of all ratings
-        // $sum = Cache::remember('avg_rate', 60 * 60, function() use ($biz_id){
-            $sum =  BusinessReview::where('business_id', $biz_id)->sum('rating');
-        // });
-
-        // Count the total number of ratings
-        // $total = Cache::remember('avg_rate', 60 * 60, function() use ($biz_id){
-            $total =  BusinessReview::where('business_id', $biz_id)->count();
-        // });
-
+        $sum =  BusinessReview::where('business_id', $biz_id)->sum('rating');
+        
+        $total =  BusinessReview::where('business_id', $biz_id)->count();
         // Calculate the average rating
         $average = $sum / $total;
 

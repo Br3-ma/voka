@@ -39,8 +39,8 @@ class BusinessReview extends Model
     }
 
     public static function avarage_rating($id){
-         // Calculate the sum of all ratings
-         $sum = BusinessReview::where('business_id', $id)->sum('rating');
+        // Calculate the sum of all ratings
+        $sum = BusinessReview::where('business_id', $id)->sum('rating');
 
         // Count the total number of ratings
         $total = BusinessReview::where('business_id', $id)->count();
