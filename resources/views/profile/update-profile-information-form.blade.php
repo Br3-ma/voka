@@ -19,13 +19,13 @@
 
                 <!-- New Profile Photo -->
                 <div id="addedNew" class="mt-2">
-                    <img id="preview-profile-pic-user" alt="{{ $this->user->name }}" class="w-1/4 h-1/4 rounded-circle me-2">
+                    <img id="preview-profile-pic-user" alt="{{ $this->user->name }}" class="w-40 h-40 rounded-circle me-2">
                 </div>
 
                 @if ($this->user->profile_photo_path)
                     <!-- Current Profile Photo -->
                     <div id="currentOldPic" class="mt-2">
-                        <img src="{{ asset('public/storage/'.$this->user->profile_photo_path) }}" alt="{{ $this->user->name }}" class="w-1/4 h-1/4 rounded-circle me-2">
+                        <img src="{{ asset('public/storage/'.$this->user->profile_photo_path) }}" alt="{{ $this->user->name }}" class="w-40 h-40 rounded-circle me-2">
                     </div>
                     <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}

@@ -102,8 +102,9 @@
                                     <div class="dropdown-content top-16 right-14 left-auto shadow-lg border border-gray-300">
                                         <div class="bg-white text-black p-4">
                                             <ul class="block space-y-4">
+                                               
                                                 @auth
-                                                    @if (auth()->user()->type == 'owner')
+                                                    @if (auth()->user()->type == 'admin' || auth()->user()->type == 'owner')
                                                     <li><a href="{{ route('dashboard') }}" class="text-black text-sm hover:text-gray-300">Dashboard</a></li>
                                                     @else                                                
                                                     <li><a href="{{ route('my-profile') }}" class="text-black text-sm hover:text-gray-300">About Me</a></li>
@@ -115,8 +116,8 @@
                                                     <form method="POST" action="{{ route('logout') }}">
                                                         @csrf
                                                         {{-- <i class="bi bi-box-arrow-left"></i> --}}
-                                                        <button type="submit" class="text-black text-sm text-center justify-content-between flex hover:text-gray-300 ai-icon">
-                                                            {{-- <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> --}}
+                                                        <button type="submit" class="text-black text-sm text-center align-items-center justify-content-center flex hover:text-gray-300 ai-icon">
+                                                            <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                                             <span class="ms-2">Logout </span>
                                                         </button>
                                                     </form>
