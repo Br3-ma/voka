@@ -13,13 +13,13 @@
         </div> --}}
     {{-- </section> --}}
 
-    <section class="text-gray-900 py-8 px-24 bg-white border-b border-gray-100">
+    <section class="text-gray-900 py-8 lg:px-24 shadow bg-white border-b border-gray-100">
         <div class="flex justify-center items-center p-4">
             <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-700 dark:text-gray-700">
                 Recent Reviews
             </p>
         </div>
-        <div class="flex space-x-2 mx-auto">
+        <div class="flex flex-wrap space-x-2 w-full">
 
             @include('__partials.recent-all-reviews')
             
@@ -27,13 +27,13 @@
     </section>
 
     
-    <section class="text-gray-900 py-8 mb-8 mx-24">
+    <section class="text-gray-900 py-8 mb-8 lg:mx-24">
         <div class="flex justify-center items-center pb-6 p-4">
-            <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-800 dark:text-gray-800">
-                Explore Categories
+            <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-700 dark:text-gray-700">
+                Explore
             </p>
         </div>
-        <div class="w-full">
+        <div class="">
 
             @include('__partials.all-categories')
             

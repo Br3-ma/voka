@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="{{ asset('public/assets/css/footer.css') }}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('public/assets/css/voo.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/assets/css/slider-banner.css') }}">
         <link rel="stylesheet" href="{{ asset('public/assets/css/pills.css') }}">
         <link rel="stylesheet" href="{{ asset('public/assets/css/responsiveness.css') }}">
         <script src="https://cdn.tailwindcss.com"></script>
