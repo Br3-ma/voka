@@ -20,6 +20,7 @@ class Category extends Model
     public function biz(){
         return $this->belongsToMany(Business::class);
     }
+
     public static function CatName($id){
         $found = Category::where('id', $id)->exists();
         if($found){

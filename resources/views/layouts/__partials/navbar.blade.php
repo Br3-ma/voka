@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="bg-white rounded-circle p-2 navbar-brand fw-bold" href="{{ url('/')}}" style="border-radius: 150px;
             background: #e6e6e6;">
-            <img src="{{ asset('public/img/logo.png') }}">
+            <img width="20" src="{{ asset('public/img/logo.png') }}">
         </a>
         <button id="sidebar-toggle" class="navbar-toggler" type="button" aria-label="Toggle navigation">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">

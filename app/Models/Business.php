@@ -39,6 +39,18 @@ class Business extends Model
         'categories' => 'array'
     ];
 
+    
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Using the boot method to eager load the 'businessDetail' relationship 
+        // when querying the 'Business' model.
+        static::addGlobalScope('withReview', function ($builder) {
+            $builder->with('review');
+        });
+    }
+
     public static function total(){
         if(auth()->user()->type == 'owner'){
             return Business::where('user_id', auth()->user()->id)->count();

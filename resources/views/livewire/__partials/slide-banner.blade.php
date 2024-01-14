@@ -1,4 +1,4 @@
-
+{{-- 
 <div>
 	<div id="video-hero" class="relative">
 	  <div class="videos">
@@ -9,7 +9,7 @@
 		  <div class="desc-shadow absolute"></div>
 		  <div class="black-shadow absolute"></div>
 		  <div class="hero-desc absolute">
-			<h1>Leaning Worker</h1>
+			<h1 style="font-size:24%">Leaning Worker</h1>
 			<p>
 			  Coffee truck worker leaning on the van while using a tablet, group
 			  of people talk and drink coffee in the background necessitatibus
@@ -62,4 +62,4 @@
 	  <img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-06-512.png" alt="how-to" />
 	  <h1>Do It</h1>
 	</div>
-</div>
+</div> --}}

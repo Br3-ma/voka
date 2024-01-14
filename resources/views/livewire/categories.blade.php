@@ -2,7 +2,7 @@
 @include('layouts.head')
 <div class="bg-white">
 	<div>
-	  @include('livewire.__partials.filterbar')
+
   
 	  <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 		<section aria-labelledby="products-heading" class="pb-24 pt-6">
@@ -45,7 +45,7 @@
 				</div>
 	
 				<!-- Product grid -->
-				<div class="lg:col-span-4">
+				<div class="lg:col-span-4 lg:border-l lg:border-gray-200 lg:pl-4">
 					<!-- Breadcrumbs -->
 					<div class="max-w-7xl">
 						<div class="flex items-center space-x-2 font-extrabold text-gray-400 text-xs">
@@ -74,6 +74,9 @@
 						@else
 						<h1 class="text-xl capitalize font-extrabold">Best in Lusaka</h1>
 						@endif
+						<button type="button" onclick="openFilterBar()" class="lg:hidden fixed bottom-4 right-4 bg-purple-800 text-white px-4 py-2 rounded-full hover:bg-purple-600">
+							Open Filters
+						</button>
 					</div>
 					<!-- ./ Breadcrumbs -->
 				
@@ -95,18 +98,18 @@
 					@endif
 					{{-- ./ Ad - Promo Section --}}
 					@forelse ($biz as $b)
-					<div class="max-w-7xl hover:shadow-lg border-b border-gray-200 py-4 mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+					<div style="box-shadow: rgba(0, 0, 0, 0.032) 1.95px 1.95px 2.6px;" class="max-w-7xl border-b py-4 mx-auto px-4 sm:px-6 lg:px-8 mt-6">
 						<a target="_blank" href="{{ route('business-detail', $b->id)}}" class="flex flex-col md:flex-row -mx-4">
 							
 							<div class="px-2">
 								@if ($b->cover !== null)
-								<img class="rounded-lg bg-gray-100 w-40 h-40" src="{{ asset('storage/app/'.$b->cover) }}" alt="Book Cover">
+									<img class="rounded-lg bg-gray-100 w-40 h-40" src="{{ asset('storage/app/'.$b->cover) }}" alt="Book Cover">
 								@else
 									<img class="rounded-lg bg-gray-100 w-40 h-40" src="data:image/jpeg;base64,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">
 								@endif
 							</div>
 							
-							<div class="md:flex-1">
+							<div class="md:flex-1 p-3">
 								<h3 class="leading-tight tracking-tight font-bold text-dark text-lg md:text-lg">{{ $b->name }}</h3>
 								
 								{{-- Average Rating --}}
@@ -163,15 +166,22 @@
 										  </svg>
 									</span>
 									<span class="text-black">
-										{{ $b->description }} 
+										{{ $b->review->first() ? $b->review->first()->review : 'No review yet' }} 
 									</span>
 								</p>
 								
 							</div>
 						</a>
-						<a target="_blank" href="{{ $b->website ?? '#' }}" type="button" class="fl-right py-2.5 px-5 mr-2 mt-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray">
-							View Website
-						</a>
+						<div class="w-full">
+							<a target="_blank" href="{{ $b->website ?? '#' }}" type="button" class=" py-2.5 px-5 mt-2 text-xs font-bold text-purple-900 focus:outline-none bg-white rounded-lg border border-purple-200 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:hover:text-gray">
+								<div class="flex gap-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+										<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+									</svg>
+									View Website
+								</div>
+							</a>
+						</div>
 					</div>
 					@empty
 						
@@ -240,11 +250,14 @@
 		  	</div>
 		</section>
 	  </main>
+	  @include('livewire.__partials.filterbar')
 	</div>
   </div>
 @include('layouts.footer')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+	
+	// $('.filterbar').hide();
 	// Submit the form whenever a checkbox is checked or unchecked
 	$(document).ready(function() {
 		$('input[name="category[]"]').on('change', function() {
@@ -268,10 +281,17 @@
 		window.history.replaceState(null, null, url);
 		});
 
-		$('.closeFilter').on('click', function() {
-			$('.filterbar').hide();
-		});
+		// $('.closeFilter').on('click', function() {
+		// 	$('.filterbar').hide();
+		// });
 	});
+	function openFilterBar() {
+		document.getElementById('filterBar').classList.remove('translate-y-full');
+	}
+
+	function closeFilterBar() {
+		document.getElementById('filterBar').classList.add('translate-y-full');
+	}
   </script>
 </div>
 

@@ -34,6 +34,51 @@
                 position: absolute;
                 z-index: 9999; /* Set a higher z-index value */
             }
+            /* Slide in Sidebar */
+            /* Default styles for the sidebar */
+            #sidebar {
+                z-index: 9999;
+                height: 100%;
+                width: 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #3b1b4c; /* Set the background color of the sidebar */
+                overflow-x: hidden;
+                transition: 0.5s; /* Set the transition duration */
+                padding-top: 60px; /* Adjust the top padding to match the height of your fixed navbar */
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            }
+
+            #sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #ffffff;
+                display: block;
+                transition: 0.3s;
+            }
+
+            #sidebar a:hover {
+                color: #f1f1f1;
+            }
+
+            /* Styles for the button that opens the sidebar */
+            #main-content {
+                transition: margin-left 0.5s;
+                padding: 16px;
+            }
+
+            /* Media query to adjust styles for smaller screens */
+            @media screen and (max-height: 450px) {
+                #sidebar a {
+                    font-size: 14px;
+                }
+                #sidebar {
+                    padding-top: 15px;
+                }
+            }
         </style>
         <script>
             // Hide the preloader when the page finishes loading
@@ -53,12 +98,11 @@
             </div>
         </div>
         <div style="z-index: 1; position: relative;" class=" text-primary">
-            <div class="py-3 sm:px-6 mb-10 bg-white">
+            <div class="py-3 sm:px-6 mb-0 bg-white">
                 <div class="sm:mx-auto sm:px-8 flex @if($currentRouteName != 'welcome') mt-1 @else  @endif justify-content-center justify-center items-center">
                     <a href="{{ route('welcome') }}" class="flex items-center">
                         <img class="h-12 w-12 text-red-500 @if($currentRouteName == 'welcome') mt-3 @endif" src="{{ asset('public/img/logo.png') }}">
                     </a>
-                    
             
                     <div class="ml-6 flex flex-1 gap-x-3 @if($currentRouteName == 'welcome') mt-1 @else mt-2 @endif">
                         <form action="{{ route('search') }}" method="GET" class="w-full">
@@ -82,7 +126,7 @@
                             <span class="text-sm font-medium">Add a Business</span>
                         </a>
                 
-                        <a target="_blank" href="{{ route('categories') }}" class="hidden sm:flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:bg-gray-100">
+                        <a href="{{ route('categories') }}" class="hidden sm:flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:bg-gray-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill h-5 w-5 text-gray-500" viewBox="0 0 16 16">
                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                             </svg>
@@ -103,7 +147,6 @@
                                     <div class="dropdown-content top-16 right-14 left-auto shadow-lg border border-gray-300">
                                         <div class="bg-white text-black p-4">
                                             <ul class="block space-y-4">
-                                               
                                                 @auth
                                                     @if (auth()->user()->type == 'admin' || auth()->user()->type == 'owner')
                                                     <li><a href="{{ route('dashboard') }}" class="text-black text-sm hover:text-gray-300">Dashboard</a></li>
@@ -129,11 +172,16 @@
                                 </li>
                             </div>                             
                             @else
-                                <a href="{{ route('login') }}" class="ml-2 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100">
+                                <button class="btn btn-primary lg:hidden navbar-toggler"  id="sidebar-toggle" type="button" aria-label="Toggle navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    </svg>
+                                </button>
+                                <a href="{{ route('login') }}" class="ml-2 hidden sm:flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100">
                                     <span class="text-sm font-medium">Sign in</span>
                                 </a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="bg-[#a609c5] text-white ml-2 bg-primary-500 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-primary-100">
+                                    <a href="{{ route('register') }}" class="bg-[#a609c5] text-white ml-2 bg-primary-500 hidden sm:flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-primary-100">
                                         <span class="text-sm font-medium">Sign up</span>
                                     </a>
                                 @endif
@@ -151,15 +199,15 @@
                             <span class=" text-xs lg:text-sm  text-blue-500 font-medium">Lusaka, LSK</span>
                         </div>
                 
-                        <div class="flex gap-x-8">
+                        <div class="flex-wrap items-center w-full">
                             <a href="{{ route('categories', ['category' => 'restaurant']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Restaurant Services</a>
-                            <a href="{{ route('categories', ['category' => 'home']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm  font-medium">Home Services</a>
-                            <a href="{{ route('categories', ['category' => 'automotives']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm  font-medium">Auto Services</a>
-                            <a href="{{ route('categories', ['category' => 'banking']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm  font-medium">Banking</a>
-                            {{-- <a href="{{ route('categories', ['category' => 'fashion']) }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Fashion</a>
-                            <a href="{{ route('categories', ['category' => 'health']) }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Health</a>
-                            <a href="{{ route('categories', ['category' => 'pharmacy']) }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Pharmacy</a>
-                            <a href="{{ route('categories', ['category' => 'toys-games']) }}" class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium">Toys & Games</a> --}}
+                            <a href="{{ route('categories', ['category' => 'home']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Home Services</a>
+                            <a href="{{ route('categories', ['category' => 'automotives']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Auto Services</a>
+                            <a href="{{ route('categories', ['category' => 'banking']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Banking</a>
+                            <a href="{{ route('categories', ['category' => 'fashion']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Fashion</a>
+                            <a href="{{ route('categories', ['category' => 'health']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Health</a>
+                            <a href="{{ route('categories', ['category' => 'pharmacy']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Pharmacy</a>
+                            <a href="{{ route('categories', ['category' => 'toys-games']) }}" class="text-black cursor-pointer rounded-sm py-1 px-2 text-xs lg:text-sm font-medium">Toys & Games</a>
                         </div>
                 
                         {{-- <span class="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">Becoma a seller</span> --}}
@@ -189,5 +237,51 @@
                 @endif
             </div>
         </div>
+        
+        <div id="sidebar">
+            <!-- Add your sidebar content here -->
+            <a href="" onclick="closeNav()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </a>
+            <br>
+            <a href="{{ route('categories') }}">Write a Review</a>
+            <a href="{{ route('subscription') }}">Add Your Business</a>
+            @auth
+                @if (auth()->user()->type == 'admin' || auth()->user()->type == 'owner')
+                <a href="{{ route('register') }}">Dashboard</a>
+                @else
+                <a href="{{ route('register') }}">My Profile</a>
+                <a href="{{ route('register') }}">My Collection</a>
+                @endif
+            @else
+                <a style="color: #aea9b1" href="{{ route('register') }}">Create an Account</a>
+                <a style="color: #aea9b1" href="{{ route('login') }}">Sign In</a>
+            @endauth
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var sidebar = document.getElementById("sidebar");
+                var content = document.getElementById("main-content");
+
+                document.getElementById("sidebar-toggle").addEventListener("click", function () {
+                    if (sidebar.style.width === "250px") {
+                        closeNav();
+                    } else {
+                        openNav();
+                    }
+                });
+            });
+            function openNav() {
+                    sidebar.style.width = "250px";
+                    content.style.marginLeft = "250px";
+            }
+
+            function closeNav() {
+                    sidebar.style.width = "0";
+                    content.style.marginLeft = "0";
+            }
+        </script>
 
 
