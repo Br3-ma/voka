@@ -9,11 +9,12 @@ use Livewire\Component;
 class BusinessDetail extends Component
 {
     use ReviewTrait, BusinessTrait;
-    public $biz, $av_rating;
+    public $biz, $av_rating, $recent_reviews;
     public function mount($id){
         $this->av_rating = $this->avg_rating($id);
         $this->biz = $this->getBusiness($id);
-        dd($this->biz);
+        
+        $this->recent_reviews = $this->get_biz_reviews($id);
     }
     public function render()
     {

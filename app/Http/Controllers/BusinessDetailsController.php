@@ -17,8 +17,11 @@ class BusinessDetailsController extends Controller
     {
         $user_review = $this->get_review($rev);
         $biz = $this->getBusiness($id);
+        
+        $recent_reviews = $this->get_biz_reviews($id);
         return view('livewire.business-detail',[
             'biz' => $biz,
+            'recent_reviews' => $recent_reviews,
             'review' => $user_review
         ]);
     }
