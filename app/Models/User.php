@@ -36,6 +36,7 @@ class User extends Authenticatable
         'country',
         'gender',
         'dob',
+        'profile_photo_path',
         'badge_level',
         'badge_icon',
         'pic',

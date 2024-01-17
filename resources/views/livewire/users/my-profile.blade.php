@@ -15,15 +15,26 @@
     }
   </style>
   <main class="bg-gray-100 bg-opacity-25">
-  
+      @if (session('success'))
+          <div class="alert alert-success">
+              {{ session('success') }}
+          </div>
+      @endif
+
+      @if (session('error'))
+          <div class="alert alert-danger">
+              {{ session('error') }}
+          </div>
+      @endif
+
     <div class="lg:w-8/12 lg:mx-auto mb-8">
   
       <header class="flex flex-wrap items-center p-4 md:py-8">
   
         <div class="w-1/4 md:w-3/12 md:ml-16">
           
-          @if (auth()->user()->reviewer_photo !== null)
-            <img id="prof-preview-image-before-upload-create" class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1" src="{{ asset('storage/app/public/'.auth()->user()->reviewer_photo) }}" alt="girl-avatar" />
+          @if (auth()->user()->pic !== null)
+            <img id="prof-preview-image-before-upload-create" class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1" src="{{ asset('storage/app/'.auth()->user()->pic) }}" alt="girl-avatar" />
           @else
             <img id="prof-preview-image-before-upload-create" class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1" src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=2000" alt="girl-avatar" />
           @endif  

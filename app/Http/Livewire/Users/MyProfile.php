@@ -35,11 +35,12 @@ class MyProfile extends Component
             ]);
     
             // Move the uploaded file to the public storage directory
-            $path = $this->pic->store('public/pics');
+            $path = $this->pic->store('profile-photos');
     
             // Save the file path in the database
             Auth::user()->update([
-                'pic' => $path
+                'pic' => $path,
+                'profile_photo_path' => $path
             ]);
     
             // Optionally, display a success message to the user

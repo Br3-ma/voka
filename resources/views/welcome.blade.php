@@ -13,7 +13,7 @@
         </div> --}}
     {{-- </section> --}}
 
-    <section class="text-gray-900 py-8 lg:px-24 shadow bg-white border-b border-gray-100">
+    <section class="text-gray-900 py-8 lg:px-24 bg-white border-b border-gray-100">
         <div class="flex justify-center items-center p-4">
             <p class="text-3xl font-extrabold leading-7 lg:leading-9 text-gray-700 dark:text-gray-700">
                 Recent Reviews
@@ -40,10 +40,9 @@
         </div>
     </section>
     {{-- Call To Action --}}
-    <section class="py-16 bg-red-500" style="font-family: 'Lato', sans-serif;
-    background: #0C011B">
+    <section class="py-16 bg-red-500" style="font-family: 'Lato', sans-serif; background: #0C011B">
         <div  class="container m-auto space-y-8 text-gray-500 md:px-12 lg:px-20">
-            <div class="justify-center text-center gap-6 md:text-left md:flex lg:items-center  lg:gap-16">
+            <div class="justify-center text-center gap-6 md:text-left md:flex lg:items-center lg:gap-16">
                 <div class="order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
                     <h1 class="focus:outline-none xl:text-5xl md:text-3xl text-xl text-gray-100 font-extrabold mb-5 pt-4">Every review comes with <span class="text-[#840178]">a story</span></h1>
                     <p class="text-lg text-white">Be part of millions people around the world to review top brands, businesses and companies. Vookamba is a review platform that’s open to everyone. Share your experiences to help others make better choices and encourage companies to up their game.</p>
@@ -62,8 +61,7 @@
                 </div>
                 <div style="border-radius: 50px;border-radius: 27px;
                 background: linear-gradient(145deg, #0a0017, #0c001b);
-                box-shadow:  39px 39px 78px #04000a,
-                             -39px -39px 78px #120028;" class="py-16 space-y-8 p-6 md:w-5/12 lg:w-6/12">
+                " class="py-16 space-y-8 p-6 md:w-5/12 lg:w-6/12">
                     <h2 class="text-gray-400 font-extrabold xl:text-5xl md:text-3xl text-xl">Our 2022 Transparency Report has landed</h2>
                     <p class="my-8 mt-4 text-lg">We’re looking back on a year unlike any other. Read about how we ensure our platform’s integrity.</p>
                 </div>
