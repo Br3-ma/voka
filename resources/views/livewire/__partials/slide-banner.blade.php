@@ -1,4 +1,4 @@
-{{-- 
+
 <div>
 	<div id="video-hero" class="relative">
 	  <div class="videos">
@@ -62,4 +62,4 @@
 	  <img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-06-512.png" alt="how-to" />
 	  <h1>Do It</h1>
 	</div>
-</div> --}}
+</div>
