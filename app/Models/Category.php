@@ -22,11 +22,7 @@ class Category extends Model
     }
 
     public static function CatName($id){
-        $found = Category::where('id', $id)->exists();
-        if($found){
-            return Category::where('id', $id)->first()->name;
-        }else{
-            return 'Removed';
-        }
+        $arr = json_decode($id, true);
+        return Category::whereIn('id', $arr)->get();
     }
 }

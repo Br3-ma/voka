@@ -127,7 +127,12 @@
 
 								<div class="flex items-center space-x-2 my-2">
 									<div class="rounded-lg bg-gray-100 flex px-2">
-										<span class="font-bold text-indigo-600 text-sm">{{ App\Models\Category::CatName($b->categories)}}</span>
+										@if(App\Models\Category::CatName($b->categories)->isNotEmpty())
+											@forelse(App\Models\Category::CatName($b->categories) as $cat)
+												<span class="font-bold text-indigo-600 text-sm">{{ $cat->name }}</span>
+											@empty
+											@endforelse
+										@endif
 									</div>
 								</div>						
 								<div class="flex items-center space-x-2 my-2">

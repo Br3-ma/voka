@@ -508,13 +508,13 @@ background-color: #682f74;
             <x-validation-errors class="mb-4" />
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <div style="margin-top:12%">
-                    <h4 style="color: #17011b">Create your account on Vookamba</h4>
-                    <br>
-                    <small style="color:#a09999;margin-top:5px; margin-bottom:5px">
+                <div style="margin-top:5%">
+                    <h4 style="color: #17011b">Create your account on <br>Vookamba</h4>
+                    {{-- <br>
+                    <small style="font-size:11px; color:#a09999;margin-top:5px; margin-bottom:5px">
                         By continuing, you agree to Vookamba’s <a href="#">Terms of Service</a> and<br> acknowledge
                         Vookamba’s <a href="#">Privacy Policy</a>.
-                    </small>
+                    </small> --}}
                 </div>
                 <br>
                 <input class="usr put" placeholder="Firstname" type="text" name="fname" :value="old('fname')" required autofocus autocomplete="name">

@@ -539,12 +539,13 @@ body{
                 @endif
                 <button id="btn" class="sub" type="submit" >Log In</button>
                 <div class="lines">
-                    <div style="background-color: #a5a5a5;" class="line"></div>
-                        <p style="color: #a5a5a5;" class="p-b">or</p>
-                        <div style="background-color: #a5a5a5;" class="line"></div>
+                    {{-- <div style="background-color: #a5a5a5;" class="line"></div> --}}
+                    <div class="line"></div>
+                        {{-- <p style="color: #a5a5a5;" class="p-b">or</p>
+                        <div style="background-color: #a5a5a5;" class="line"></div> --}}
                     </div>
-                    <a style="border: 2px solid;" id="btn" class="subfb pic facebook"><div class="logo2"></div>Sign in with Facebook</a>
-                    <a style="border: 2px solid;" id="btn" class="subgmail pic google"><div class="logo"></div>Sign in with Google</a>
+                    {{-- <a style="border: 2px solid;" id="btn" class="subfb pic facebook"><div class="logo2"></div>Sign in with Facebook</a>
+                    <a style="border: 2px solid;" id="btn" class="subgmail pic google"><div class="logo"></div>Sign in with Google</a> --}}
                 </div>
             </form>
             <div class="banner">
