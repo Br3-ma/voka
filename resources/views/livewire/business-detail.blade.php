@@ -22,7 +22,13 @@
                     <span class="font-bold text-indigo-600 text-sm"></span>
                 </div>
                 <div class="rounded-lg bg-gray-100 flex px-2">
-                    <span class="font-bold text-indigo-600 text-sm">{{ App\Models\Category::CatName($biz->categories) ?? ''}}</span>
+                    @if(App\Models\Category::CatName($biz->categories)->isNotEmpty())
+                        @forelse(App\Models\Category::CatName($biz->categories) as $cat)
+                            <span class="font-bold text-indigo-600 text-sm">{{ $cat->name }}</span>
+                        @empty
+                        @endforelse
+                    @endif
+                    {{-- <span class="font-bold text-indigo-600 text-sm">{{ App\Models\Category::CatName($biz->categories) ?? ''}}</span> --}}
                 </div>
             </div>	
             <div class="flex items-center space-x-2 my-2">

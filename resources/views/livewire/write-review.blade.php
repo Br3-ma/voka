@@ -1,6 +1,6 @@
 <div class="bg-white">
-    <div class="bg-white flex ">
-        <div class="w-3/4">
+    <div class="lg:flex">
+        <div class="lg:w-3/4 w-full">
             <div class="max-w-sm w-full lg:max-w-full">
                 <div class="p-8 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
@@ -32,9 +32,9 @@
                 </div>
             </div>
         </div>
-        <div wire:poll.50000ms class="w-1/4">
+        <div wire:poll.50000ms class="lg:w-1/4">
             <div class="flex justify-start items-start p-4">
-                <p class="text-md font-semibold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Recent Reviews</p>
+                <p class="text-md font-bold leading-7 lg:leading-9 text-gray-800 dark:text-gray-700 ">Recent Reviews</p>
             </div>
             <div class="flex justify-center items-center">
                 <div class="justify-start items-start w-full h-84 overflow-auto">
@@ -56,7 +56,7 @@
                                     <p class="text-xs truncated-paragraph leading-none text-gray-600 dark:text-gray-700">{{ $review->created_at->toFormattedDateString()}}</p>
                                 </div>
                             </div>
-                             
+                            
                             @include('livewire.__partials.rate-stars-person')
                         </div>
                         <div id="menu" class="md:block">
