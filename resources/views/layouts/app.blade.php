@@ -132,7 +132,11 @@
                 display: block; /* Show on screens with a maximum width of 992px (e.g., tablets and mobiles) */
                 }
             }
-
+            @media (max-width: 767px) {
+                #navbarSupportedContent {
+                    display: none;
+                }
+            }
         </style>
     </head>
     <body class="w-full">
