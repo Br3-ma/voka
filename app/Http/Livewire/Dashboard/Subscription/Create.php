@@ -23,8 +23,10 @@ class Create extends Component
         if ($data) {
             session()->flash('success', 'Ok, '.$this->name.' has been added to subscriptions!');
             $this->reset();
+            return redirect()->route('create-subscription');
         } else {
             session()->flash('error', 'Failed, '.$this->name.' Unable to add subscriptions!');
+            return redirect()->route('create-subscription');
         }
     }
 

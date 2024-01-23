@@ -23,8 +23,10 @@ class Create extends Component
         $response = $this->create_tag($data);
         if ($response) {
             session()->flash('success', 'Ok, '.$this->name.' has been added to tags!');
+            return redirect()->route('manage-tags');
         } else {
             session()->flash('error', 'Failed to create tag!');
+            return redirect()->route('manage-tags');
         }
     }
 }

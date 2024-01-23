@@ -9,11 +9,11 @@
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
             </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="text-white" id="navbarSupportedContent">
             <ul class="navbar-nav sm-icons">
                 {{-- <li><a class="nav-link" href="#"><i class="bi bi-people"></i></a></li> --}}
                 <li>
-                    <a title="Profile Settings" class="nav-link" href="{{ url('/user/profile')}}">
+                    <a title="Profile Settings" class="nav-link text-white" href="{{ url('/user/profile')}}">
                         <small>{{ auth()->user()->fname.' '.auth()->user()->lname }}</small>
                         &nbsp;
                         @if (auth()->user()->profile_photo_path)

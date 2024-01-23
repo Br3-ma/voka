@@ -25,8 +25,10 @@ class Create extends Component
         $response = $this->create_category($data);
         if ($response) {
             session()->flash('success', 'Ok, '.$this->name.' has been added to categories!');
+            return redirect()->route('manage-categories');
         } else {
             session()->flash('error', 'Failed to create category!');
+            return redirect()->route('manage-categories');
         }
         
     }

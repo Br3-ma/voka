@@ -143,7 +143,6 @@
                                             @else
                                             <img id="prof-preview-image-before-upload-create" class="avatar avatar-sm rounded-circle me-2" src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=2000" alt="girl-avatar" />
                                             @endif 
-                                            <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
                                             <a class="text-heading font-semibold" href="#">
                                                 {{ $user->owner->fname.' '.$user->owner->lname }}
                                             </a>
